@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+    <TextView
+        android:id="@+id/extremalDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="10/08/2016 16:00"/>
+
+    <TextView
+        android:id="@+id/extremalType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="8dp"
+        tools:text="massimo"/>
+
+    <TextView
+        android:id="@+id/extremalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingEnd="8dp"
+        android:paddingRight="8dp"
+        android:textAlignment="center"
+        android:visibility="visible"
+        tools:text="60"/>
+
+</RelativeLayout>

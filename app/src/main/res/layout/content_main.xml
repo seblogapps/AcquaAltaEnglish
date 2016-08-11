@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/content_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="appinventor.ai_seblog2k.Acqua_Alta_English.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:id="@+id/tideTableTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Previsioni complete"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="normal|bold"/>
+
+    <TextView
+        android:id="@+id/dateHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tideTableTitle"
+        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        android:text="Data"
+        android:textStyle="normal|bold"/>
+
+    <TextView
+        android:id="@+id/typeHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tideTableTitle"
+        android:layout_centerHorizontal="true"
+        android:text="Estremale"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/valueHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tideTableTitle"
+        android:paddingEnd="8dp"
+        android:paddingRight="8dp"
+        android:text="Valore (cm)"
+        android:textStyle="bold"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/dateHeader">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>
