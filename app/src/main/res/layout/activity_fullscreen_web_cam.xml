@@ -1,0 +1,63 @@
+<RelativeLayout android:id="@+id/webcamFrameLayout"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#0099cc"
+                tools:context="appinventor.ai_seblog2k.Acqua_Alta_English.FullscreenWebCam">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <ImageView
+        android:id="@+id/webcamImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:src="@drawable/webcamplaceholder"/>
+
+    <TextView
+        android:id="@+id/webcamDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="90dp"
+        android:paddingTop="8dp"
+        android:textAlignment="center"
+        android:textColor="#33b5e5"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        tools:text="WebCam Description"/>
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <!--<Button-->
+            <!--android:id="@+id/dummy_button"-->
+            <!--style="?metaButtonBarButtonStyle"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="@string/dummy_button"/>-->
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>

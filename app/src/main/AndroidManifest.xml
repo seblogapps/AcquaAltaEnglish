@@ -38,6 +38,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="appinventor.ai_seblog2k.Acqua_Alta_English.MainActivity"/>
         </activity>
+        <activity
+            android:name=".FullscreenWebCam"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen_web_cam"
+            android:parentActivityName=".WebCamActivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="appinventor.ai_seblog2k.Acqua_Alta_English.WebCamActivity"/>
+        </activity>
     </application>
 
 </manifest>

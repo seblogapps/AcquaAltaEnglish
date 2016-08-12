@@ -40,7 +40,7 @@ public class WebCamRecyclerViewAdapter extends RecyclerView.Adapter<WebCamViewHo
         webCamViewHolder.mWebCamDescription.setText(webCamItem.getDescription());
         Picasso.with(mContext).load(webCamItem.getUrl())
                 .error(R.drawable.webcamerrorplaceholder)
-                .placeholder(R.drawable.webcamgraphplaceholder)
+                .placeholder(R.drawable.webcamplaceholder)
                 .into(webCamViewHolder.mWebCamThumbnail);
     }
 

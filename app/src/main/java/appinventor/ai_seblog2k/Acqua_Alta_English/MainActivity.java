@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         // Set up the RecyclerView object
         mRecyclerView = (RecyclerView) findViewById(R.id.tideRecyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setHasFixedSize(true);
         // Load and process the Tide Data
         final ProcessTideData processTideData = new ProcessTideData();
         processTideData.execute();

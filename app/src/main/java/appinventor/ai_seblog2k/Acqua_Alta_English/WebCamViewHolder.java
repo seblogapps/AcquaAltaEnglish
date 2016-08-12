@@ -18,5 +18,6 @@ public class WebCamViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         this.mWebCamThumbnail = (ImageView) itemView.findViewById(R.id.webcam_thumbnail);
         this.mWebCamDescription = (TextView) itemView.findViewById(R.id.webcam_description);
+        itemView.setOnClickListener(WebCamActivity.webCamOnClickListener);
     }
 }
