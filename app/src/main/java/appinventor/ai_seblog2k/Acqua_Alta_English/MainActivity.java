@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Set up the RecyclerView object
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.tideRecyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         // Load and process the Tide Data
         final ProcessTideData processTideData = new ProcessTideData();
@@ -92,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
         }
         if (id == R.id.action_tideGraph) {
             Intent intent = new Intent(this, TideGraphActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.action_webCams) {
+            Intent intent = new Intent(this, WebCamActivity.class);
             startActivity(intent);
         }
 

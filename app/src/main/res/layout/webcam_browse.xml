@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/webcam_thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_height="100dp"
+        tools:layout_width="100dp"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/webcam_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/webcam_thumbnail"
+        android:layout_toRightOf="@+id/webcam_thumbnail"
+        android:gravity="center|top"
+        android:maxLines="2"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Palazzo Cavalli"/>
+
+</RelativeLayout>
