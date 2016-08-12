@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="appinventor.ai_seblog2k.Acqua_Alta_English.WebCamActivity"
-    tools:showIn="@layout/activity_web_cam">
+    tools:showIn="@layout/activity_webcam">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

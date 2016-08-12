@@ -37,9 +37,6 @@ public class GetWebCamData {
 
     public GetWebCamData() {
         mWebCams = new ArrayList<>();
-    }
-
-    public List<WebCam> getWebCams() {
         for (int i = 0; i < webCamUrls.length; i++) {
             WebCam webCamObject = new WebCam(webCamUrls[i], webCamDescription[i]);
             this.mWebCams.add(webCamObject);
@@ -47,6 +44,9 @@ public class GetWebCamData {
         for (WebCam webCam : mWebCams) {
             Log.d(TAG, "getWebCams: processResult: " + webCam.toString());
         }
+    }
+
+    public List<WebCam> getWebCams() {
         return mWebCams;
     }
 

@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#0099cc"
+                android:background="#80d8ff"
                 tools:context="appinventor.ai_seblog2k.Acqua_Alta_English.FullscreenWebCam">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -24,7 +24,7 @@
         android:layout_marginBottom="90dp"
         android:paddingTop="8dp"
         android:textAlignment="center"
-        android:textColor="#33b5e5"
+        android:textColor="#29b6f6"
         android:textSize="32sp"
         android:textStyle="bold"
         tools:text="WebCam Description"/>
