@@ -20,11 +20,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String LOG = MainActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     private List<Tide> mTideList = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private TideRecyclerViewAdapter mTideRecyclerViewAdapter;
     private SwipeRefreshLayout swipeContainer;
+
+    final ProcessTideData processTideData = new ProcessTideData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +40,16 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
         // Load and process the Tide Data
-        final ProcessTideData processTideData = new ProcessTideData();
-        processTideData.execute();
+        updateTideData();
 
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if (mTideRecyclerViewAdapter != null) {
-                    mTideRecyclerViewAdapter.clear();
-                }
-                processTideData.execute();
+                updateTideData();
             }
         });
+
         Context context = getApplicationContext();
         swipeContainer.setColorSchemeColors((ContextCompat.getColor(context, android.R.color.holo_blue_bright)),
                 (ContextCompat.getColor(context, android.R.color.holo_green_light)),
@@ -67,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                updateTideData();
             }
         });
     }
@@ -102,6 +100,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void updateTideData() {
+        if (!WebServiceUtils.hasInternetConnection(getApplicationContext())) {
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), "Internet connection needed", Snackbar.LENGTH_LONG);
+            snackbar.setAction("Action", null);
+            snackbar.show();
+            if (swipeContainer != null)
+                swipeContainer.setRefreshing(false);
+        } else {
+            if (mTideRecyclerViewAdapter != null) {
+                mTideRecyclerViewAdapter.clear();
+            }
+            processTideData.execute();
+        }
     }
 
     public class ProcessTideData extends GetTideJsonData {

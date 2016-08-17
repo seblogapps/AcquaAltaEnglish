@@ -18,6 +18,7 @@
         android:id="@+id/tideGraph"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:layout_height="320dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 

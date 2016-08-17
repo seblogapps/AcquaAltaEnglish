@@ -2,12 +2,17 @@ package appinventor.ai_seblog2k.Acqua_Alta_English;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.PicassoTools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +39,26 @@ public class WebCamActivity extends AppCompatActivity {
 
         webCamOnClickListener = new MyOnClickListener();
 
+        updateWebCamRecyclerView();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabWebCam);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!WebServiceUtils.hasInternetConnection(getApplicationContext())) {
+                    Snackbar snackbar = Snackbar.make(findViewById(R.id.content_tide_graph), "Internet connection needed", Snackbar.LENGTH_LONG);
+                    snackbar.setAction("Action", null);
+                    snackbar.show();
+                } else {
+                    PicassoTools.clearCache(Picasso.with(WebCamActivity.this));
+                    mWebCamRecyclerViewAdapter.clear();
+                    updateWebCamRecyclerView();
+                }
+            }
+        });
+    }
+
+    private void updateWebCamRecyclerView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.webcamRecyclerview);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -63,6 +88,4 @@ public class WebCamActivity extends AppCompatActivity {
         fullScreenIntent.putExtra("webCamDescription", selectedWebCam.getDescription());
         startActivity(fullScreenIntent);
     }
-
-
 }
