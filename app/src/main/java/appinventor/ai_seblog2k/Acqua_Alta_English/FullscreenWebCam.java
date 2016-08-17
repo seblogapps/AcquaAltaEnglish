@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -112,18 +113,18 @@ public class FullscreenWebCam extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.webcamDescription);
         description.setText(webCamDescription);
 
-        // Create a PhotoView object to store the webCam Image (PhotoView library used to implement pinch-to-zoom)
         ImageView webCamImageView = (ImageView) findViewById(R.id.webcamImage);
         // Use Picasso library to load the image
         Picasso.with(this)
                 .load(webCamUrl)
+                //.networkPolicy(NetworkPolicy.NO_CACHE)
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
                 .placeholder(R.drawable.webcamplaceholder)
                 .error(R.drawable.webcamerrorplaceholder)
                 .into(webCamImageView);
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
-        //mContentView = findViewById(R.id.fullscreen_content);
         mContentView = findViewById(R.id.webcamFrameLayout);
 
 

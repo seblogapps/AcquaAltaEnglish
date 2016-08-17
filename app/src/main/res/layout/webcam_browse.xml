@@ -7,11 +7,12 @@
 
     <ImageView
         android:id="@+id/webcam_thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_height="100dp"
-        tools:layout_width="100dp"
-        tools:src="@drawable/webcamplaceholder"/>
+        android:layout_width="200dp"
+        android:layout_height="165dp"
+        tools:layout_height="200dp"
+        tools:layout_width="165dp"
+        tools:src="@drawable/webcamplaceholder"
+        android:contentDescription="WebCam Image"/>
 
     <TextView
         android:id="@+id/webcam_description"
@@ -20,13 +21,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:layout_toEndOf="@+id/webcam_thumbnail"
         android:layout_toRightOf="@+id/webcam_thumbnail"
         android:gravity="center|top"
         android:maxLines="2"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        tools:text="Palazzo Cavalli"/>
+        tools:text="S.Marco\nTorre dell'Orologio 1"/>
 
 </RelativeLayout>

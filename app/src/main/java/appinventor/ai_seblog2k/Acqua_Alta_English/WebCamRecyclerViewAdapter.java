@@ -37,16 +37,18 @@ public class WebCamRecyclerViewAdapter extends RecyclerView.Adapter<WebCamViewHo
     @Override
     public void onBindViewHolder(WebCamViewHolder webCamViewHolder, int position) {
         WebCam webCamItem = mWebCamList.get(position);
-        Log.d(TAG, "onBindViewHolder: Processing: " + webCamItem.getDescription() + " position --> " + position + " url --> " + webCamItem.getUrl());
-        webCamViewHolder.mWebCamDescription.setText(webCamItem.getDescription());
         String webCamUrl = webCamItem.getUrl();
+        Log.d(TAG, "onBindViewHolder: Processing: " + webCamItem.getDescription() + " position --> " + position + " url --> " + webCamUrl);
+        webCamViewHolder.mWebCamDescription.setText(webCamItem.getDescription());
+        // To avoid duplicate images in RecyclerView, always check that webCamUrl is not null before loading image with Picasso
         if (webCamUrl != null) {
             //Picasso.with(mContext).invalidate(webCamItem.getUrl());
-            Picasso.with(mContext).load(webCamItem.getUrl())
+            Picasso.with(mContext).load(webCamUrl)
                     // Try to avoid duplicate images -- START
                     //.networkPolicy(NetworkPolicy.NO_CACHE)
                     //.memoryPolicy(MemoryPolicy.NO_CACHE)
                     // Try to avoid duplicate images -- END
+                    .fit().centerCrop()
                     .error(R.drawable.webcamerrorplaceholder)
                     .placeholder(R.drawable.webcamplaceholder)
                     .into(webCamViewHolder.mWebCamThumbnail);
