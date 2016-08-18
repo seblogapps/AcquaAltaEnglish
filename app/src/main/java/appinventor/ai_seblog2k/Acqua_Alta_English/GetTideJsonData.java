@@ -64,7 +64,7 @@ public class GetTideJsonData extends GetRawData {
 
         @Override
         protected String doInBackground(String... params) {
-            String[] par = { mDestinationUri.toString() };
+            String[] par = {mDestinationUri.toString()};
             return super.doInBackground(par);
         }
     }

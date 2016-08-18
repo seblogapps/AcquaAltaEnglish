@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeContainer;
 
     final ProcessTideData processTideData = new ProcessTideData();
+    private String extremalMaxValueDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,12 +139,33 @@ public class MainActivity extends AppCompatActivity {
                 mTideList = getTides();
                 Log.d(TAG, "onPostExecute: mTideListSize " + mTideList.size());
                 Log.d(TAG, "onPostExecute: forecastDate " + Utils.formatJSONDate(getForecastDateTime()));
-                Log.d(TAG, "onPostExecute: maxTideValue " + getExtremalMaxValue());
+                int extremalMaxValue = getExtremalMaxValue();
+                Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
                 Log.d(TAG, "onPostExecute: maxTideValueIndex " + getExtremalMaxValueIndex());
+                extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue);
+                Log.d(TAG, "onPostExecute: extremalValueDescription " + extremalMaxValueDescription);
                 mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
                 mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
                 swipeContainer.setRefreshing(false);
             }
+
+            private String getExtremalMaxValueDescription(int extremalValue) {
+                if (extremalValue >= 140) {
+                    return "Alta marea eccezionale oltre 140cm";
+                } else if (extremalValue >= 100) {
+                    return "Marea molto sostenuta +110 ÷ +139";
+                } else if (extremalValue >= 80) {
+                    return "Marea sostenuta +80 ÷ +109";
+                } else if (extremalValue >= 50) {
+                    return "Marea normale -50 ÷ +79";
+                } else if (extremalValue >= -90) {
+                    return "Marea sotto i valori normali -90 ÷ -51";
+                } else if (extremalValue < 90) {
+                    return "Bassa marea eccezionale <-90";
+                } else
+                    return null;
+            }
         }
     }
 }
+
