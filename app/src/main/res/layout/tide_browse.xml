@@ -20,7 +20,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:paddingLeft="8dp"
-        tools:text="massimo"/>
+        tools:text="massimo"
+        android:textAlignment="viewStart"
+        android:gravity="start"/>
 
     <TextView
         android:id="@+id/extremalValue"
