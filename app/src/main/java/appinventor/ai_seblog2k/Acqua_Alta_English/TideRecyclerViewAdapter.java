@@ -1,7 +1,9 @@
 package appinventor.ai_seblog2k.Acqua_Alta_English;
 
 import android.content.Context;
+import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -59,19 +61,25 @@ public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder
     }
 
     private String formatDate(String rawDate) {
-        // TODO: Sistemare con codice che prende JSON datetime e converte in data locale del tel
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            try {
-                Date date = format.parse(rawDate);
-                SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                String myDateTime = myFormat.format(date);
-                Log.d(TAG, "formatDate: Formatted date: " + myDateTime);
-                return myDateTime;
-            } catch (ParseException e) {
-                e.printStackTrace();
-                Log.e(TAG, "formatDate: Error formatting date from JSON");
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                SimpleDateFormat inFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date dateObj = inFormatter.parse(rawDate);
+                String formattedDateTime = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(dateObj);
+                Log.d(TAG, "formatDate: Formatted date (API>=24): " + formattedDateTime);
+                return formattedDateTime;
+            } else {
+                java.text.SimpleDateFormat inFormatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date dateObj = inFormatter.parse(rawDate);
+                java.text.SimpleDateFormat outFormatter = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm");
+                String formattedDateTime = outFormatter.format(dateObj);
+                Log.d(TAG, "formatDate: Formatted date (API<24): " + formattedDateTime);
+                return formattedDateTime;
             }
-        } return rawDate;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.e(TAG, "formatDate: Error formatting date from JSON");
+            return rawDate;
+        }
     }
 }
