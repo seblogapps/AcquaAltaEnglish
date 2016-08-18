@@ -1,17 +1,12 @@
 package appinventor.ai_seblog2k.Acqua_Alta_English;
 
 import android.content.Context;
-import android.icu.text.DateFormat;
-import android.icu.text.SimpleDateFormat;
-import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,8 +16,6 @@ import java.util.List;
 public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder> {
 
     private static final String TAG = TideRecyclerViewAdapter.class.getSimpleName();
-    private static final String JSONDateTimePattern = "yyyy-MM-dd HH:mm:ss";
-    private static final String defaultDateTimePattern = "dd/MM/yyyy HH:mm";
 
     private List<Tide> mTideList;
     private Context mContext;
@@ -43,7 +36,7 @@ public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder
     public void onBindViewHolder(TideViewHolder tideViewHolder, int position) {
         Tide tideItem = mTideList.get(position);
         Log.d(TAG, "onBindViewHolder: Processing: " + tideItem.getExtremalDate() + " position --> " + position);
-        tideViewHolder.extremalDate.setText(formatDate(tideItem.getExtremalDate()));
+        tideViewHolder.extremalDate.setText(Utils.formatDate(tideItem.getExtremalDate()));
         tideViewHolder.extremalType.setText(formatExtremalType(tideItem.getExtremalType()));
         tideViewHolder.extremalValue.setText(tideItem.getExtremalValue());
     }
@@ -61,29 +54,6 @@ public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder
     public void addAll(List<Tide> tideList) {
         mTideList.addAll(tideList);
         notifyDataSetChanged();
-    }
-
-    private String formatDate(String rawDate) {
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                SimpleDateFormat inFormatter = new SimpleDateFormat(JSONDateTimePattern);
-                Date dateObj = inFormatter.parse(rawDate);
-                String formattedDateTime = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(dateObj);
-                Log.d(TAG, "formatDate: Formatted date (API>=24): " + formattedDateTime);
-                return formattedDateTime;
-            } else {
-                java.text.SimpleDateFormat inFormatter = new java.text.SimpleDateFormat(JSONDateTimePattern);
-                Date dateObj = inFormatter.parse(rawDate);
-                java.text.SimpleDateFormat outFormatter = new java.text.SimpleDateFormat(defaultDateTimePattern);
-                String formattedDateTime = outFormatter.format(dateObj);
-                Log.d(TAG, "formatDate: Formatted date (API<24): " + formattedDateTime);
-                return formattedDateTime;
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-            Log.e(TAG, "formatDate: Error formatting date from JSON");
-            return rawDate;
-        }
     }
 
     private String formatExtremalType(String rawExtremal) {

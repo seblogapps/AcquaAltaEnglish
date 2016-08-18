@@ -45,7 +45,7 @@ public class WebCamActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!WebServiceUtils.hasInternetConnection(getApplicationContext())) {
+                if (!Utils.hasInternetConnection(getApplicationContext())) {
                     Snackbar snackbar = Snackbar.make(findViewById(R.id.content_tide_graph), "Internet connection needed", Snackbar.LENGTH_LONG);
                     snackbar.setAction("Action", null);
                     snackbar.show();

@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateTideData() {
-        if (!WebServiceUtils.hasInternetConnection(getApplicationContext())) {
+        if (!Utils.hasInternetConnection(getApplicationContext())) {
             Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), "Internet connection needed", Snackbar.LENGTH_LONG);
             snackbar.setAction("Action", null);
             snackbar.show();
@@ -134,7 +135,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String webData) {
                 super.onPostExecute(webData);
-                mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, getTides());
+                mTideList = getTides();
+                Log.d(TAG, "onPostExecute: mTideListSize " + mTideList.size());
+                Log.d(TAG, "onPostExecute: forecastDate " + Utils.formatDate(getForecastDateTime()));
+                Log.d(TAG, "onPostExecute: maxTideValue " + getExtremalMaxValue());
+                Log.d(TAG, "onPostExecute: maxTideValueIndex " + getExtremalMaxValueIndex());
+                mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
                 mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
                 swipeContainer.setRefreshing(false);
             }

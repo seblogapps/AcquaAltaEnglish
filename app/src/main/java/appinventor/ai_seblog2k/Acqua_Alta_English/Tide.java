@@ -4,11 +4,17 @@ package appinventor.ai_seblog2k.Acqua_Alta_English;
  * Created by stognacci on 10/08/2016.
  */
 
-public class Tide {
+public class Tide implements Comparable<Tide> {
     private String mForecastDate;
     private String mExtremalDate;
     private String mExtremalType;
     private String mExtremalValue;
+
+    @Override
+    public int compareTo(Tide compareTide) {
+        int compareExtremalValue = Integer.parseInt((compareTide).getExtremalValue());
+        return Integer.parseInt(this.mExtremalValue) - compareExtremalValue;
+    }
 
     public Tide(String forecastDate, String extremalDate, String extremalType, String extremalValue) {
         mForecastDate = forecastDate;

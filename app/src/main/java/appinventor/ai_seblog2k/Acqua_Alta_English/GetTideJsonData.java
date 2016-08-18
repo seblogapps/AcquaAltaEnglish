@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,6 +30,21 @@ public class GetTideJsonData extends GetRawData {
 
     public List<Tide> getTides() {
         return mTides;
+    }
+
+    // Return the last forecast date from JSON data, it's stored with any record, so simply take it from record 0
+    public String getForecastDateTime() {
+        return mTides.get(0).getForecastDate();
+    }
+
+    // Return the index position of the maximum tide level in the current forecast
+    public int getExtremalMaxValue() {
+        Tide tideObject = Collections.max(mTides);
+        return Integer.parseInt(tideObject.getExtremalValue());
+    }
+
+    public int getExtremalMaxValueIndex() {
+        return mTides.indexOf(Collections.max(mTides));
     }
 
     public void execute() {
