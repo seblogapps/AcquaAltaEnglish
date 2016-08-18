@@ -21,26 +21,26 @@ public class Utils {
     private static final String defaultDateTimePattern = "dd/MM/yyyy HH:mm";
 
 
-    static String formatDate(String rawDate) {
+    static String formatJSONDate(String jsonDate) {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 SimpleDateFormat inFormatter = new SimpleDateFormat(JSONDateTimePattern);
-                Date dateObj = inFormatter.parse(rawDate);
+                Date dateObj = inFormatter.parse(jsonDate);
                 String formattedDateTime = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(dateObj);
-                Log.d(TAG, "formatDate: Formatted date (API>=24): " + formattedDateTime);
+                Log.d(TAG, "formatJSONDate: Formatted date (API>=24): " + formattedDateTime);
                 return formattedDateTime;
             } else {
                 java.text.SimpleDateFormat inFormatter = new java.text.SimpleDateFormat(JSONDateTimePattern);
-                Date dateObj = inFormatter.parse(rawDate);
+                Date dateObj = inFormatter.parse(jsonDate);
                 java.text.SimpleDateFormat outFormatter = new java.text.SimpleDateFormat(defaultDateTimePattern);
                 String formattedDateTime = outFormatter.format(dateObj);
-                Log.d(TAG, "formatDate: Formatted date (API<24): " + formattedDateTime);
+                Log.d(TAG, "formatJSONDate: Formatted date (API<24): " + formattedDateTime);
                 return formattedDateTime;
             }
         } catch (ParseException e) {
             e.printStackTrace();
-            Log.e(TAG, "formatDate: Error formatting date from JSON");
-            return rawDate;
+            Log.e(TAG, "formatJSONDate: Error formatting date from JSON");
+            return jsonDate;
         }
     }
 

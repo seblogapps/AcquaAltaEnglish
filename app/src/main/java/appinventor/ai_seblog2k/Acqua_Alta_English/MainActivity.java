@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onPostExecute(webData);
                 mTideList = getTides();
                 Log.d(TAG, "onPostExecute: mTideListSize " + mTideList.size());
-                Log.d(TAG, "onPostExecute: forecastDate " + Utils.formatDate(getForecastDateTime()));
+                Log.d(TAG, "onPostExecute: forecastDate " + Utils.formatJSONDate(getForecastDateTime()));
                 Log.d(TAG, "onPostExecute: maxTideValue " + getExtremalMaxValue());
                 Log.d(TAG, "onPostExecute: maxTideValueIndex " + getExtremalMaxValueIndex());
                 mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
