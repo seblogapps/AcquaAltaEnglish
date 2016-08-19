@@ -106,9 +106,6 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
         if (id == R.id.action_tideGraph) {
             Intent intent = new Intent(this, TideGraphActivity.class);
             startActivity(intent);
@@ -175,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                 tideRecapIconRight.setImageResource(tideRecapIconImageResource);
                 // Depending on the max extremal value, set the background for the description recap line
                 tideDescriptionLayout.setBackgroundResource((getTideRecapBackground(extremalMaxValue)));
-                // Read from the tide forecast the last update date of the forecast
+                // Read from the tide forecast the last update date of the forecast and load it to textView
                 String tideForecastDateTime = getForecastDateTime();
                 tideForecastDate.setText(new StringBuilder().append("Ultimo aggiornamento: ")
                         .append(Utils.formatJSONDate(tideForecastDateTime))

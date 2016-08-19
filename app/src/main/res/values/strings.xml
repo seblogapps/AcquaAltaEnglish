@@ -4,9 +4,7 @@
     <string name="title_activity_tide_graph">Tide Graph</string>
     <string name="action_tideGraph">Tide Graph</string>
     <string name="title_activity_web_cam">Select WebCam</string>
-    <string name="action_webcams">Venice WebCams</string>
-
+    <string name="action_webcams">WebCams</string>
+    <string name="action_info">Info</string>
     <string name="title_activity_fullscreen_web_cam">WebCam</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
