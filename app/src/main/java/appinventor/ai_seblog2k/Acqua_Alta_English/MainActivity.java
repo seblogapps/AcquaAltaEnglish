@@ -154,14 +154,14 @@ public class MainActivity extends AppCompatActivity {
                 super.onPostExecute(webData);
                 mTideList = getTides();
                 // Read from the tide forecast table forecast Date and Time
-                String forecastUpdateDateTime = Utils.formatJSONDate(getForecastDateTime());
+                String forecastUpdateDateTime = Utils.formatJSONDateTime(getForecastDateTime());
                 Log.d(TAG, "onPostExecute: forecastDate " + forecastUpdateDateTime);
                 // Read from the tide forecast table the maximum value of the extremal tide level
                 int extremalMaxValue = getExtremalMaxValue();
                 Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
                 // From the max value of tide level, extract the string with the description of the tide level
                 // Read from the tide forecast the date and time for the next max tide event
-                String extremalMaxValueDateTime = Utils.formatJSONDate(getExtremalMaxValueDateTime());
+                String extremalMaxValueDateTime = getExtremalMaxValueDateTime();
                 String extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue, extremalMaxValueDateTime);
                 Log.d(TAG, "onPostExecute: extremalValueDescription " + extremalMaxValueDescription);
                 tideRecapDescription.setText(extremalMaxValueDescription);
@@ -182,10 +182,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private String getExtremalMaxValueDescription(int extremalValue, String extremalDateTime) {
+                String extremalDate = Utils.formatJSONDate(extremalDateTime);
+                String extremalTime = Utils.formatJSONTime(extremalDateTime);
                 final StringBuilder sb = new StringBuilder("" + extremalValue);
                 sb.append("cm ");
-                sb.append(" il ");
-                sb.append(extremalDateTime);
+                sb.append("il ");
+                sb.append(extremalDate);
+                sb.append(" alle ");
+                sb.append(extremalTime);
                 sb.append("\n");
                 if (extremalValue >= 140) {
                     sb.append("Alta marea eccezionale (oltre 140cm)");
@@ -200,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (extremalValue < -90) {
                     sb.append("Bassa marea eccezionale (inferiore -90cm)");
                 } else
-                    sb.append(" dato non previsto");
+                    sb.append("dato non previsto");
                 return sb.toString();
             }
 

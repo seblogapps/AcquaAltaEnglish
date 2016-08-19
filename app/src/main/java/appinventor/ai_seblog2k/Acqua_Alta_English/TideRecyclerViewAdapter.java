@@ -38,7 +38,7 @@ public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder
     public void onBindViewHolder(TideViewHolder tideViewHolder, int position) {
         Tide tideItem = mTideList.get(position);
         Log.d(TAG, "onBindViewHolder: Processing: " + tideItem.getExtremalDate() + " position --> " + position);
-        tideViewHolder.extremalDate.setText(Utils.formatJSONDate(tideItem.getExtremalDate()));
+        tideViewHolder.extremalDate.setText(Utils.formatJSONDateTime(tideItem.getExtremalDate()));
         tideViewHolder.extremalType.setText(formatExtremalType(tideItem.getExtremalType()));
         tideViewHolder.extremalValue.setText(tideItem.getExtremalValue());
         if (Integer.parseInt(tideItem.getExtremalValue()) >= EXTREMAL_VALUE_THRESHOLD) {
