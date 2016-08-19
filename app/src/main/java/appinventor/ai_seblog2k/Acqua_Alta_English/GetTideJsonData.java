@@ -107,5 +107,4 @@ public class GetTideJsonData extends GetRawData {
             Log.e(TAG, "processResult: Error processing Json data", e);
         }
     }
-
 }
