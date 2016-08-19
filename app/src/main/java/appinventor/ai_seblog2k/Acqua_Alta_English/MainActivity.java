@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 String forecastUpdateDateTime = Utils.formatJSONDate(getForecastDateTime());
                 Log.d(TAG, "onPostExecute: forecastDate " + forecastUpdateDateTime);
                 // Read from the tide forecast table the maximum value of the extremal tide level
-                int extremalMaxValue = getExtremalMaxValue();
+                int extremalMaxValue = 110;//getExtremalMaxValue();
                 Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
                 // From the max value of tide level, extract the string with the description of the tide level
                 String extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue);
