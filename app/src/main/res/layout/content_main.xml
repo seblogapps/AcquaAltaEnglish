@@ -11,11 +11,74 @@
     tools:context="appinventor.ai_seblog2k.Acqua_Alta_English.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <LinearLayout
+        android:id="@+id/tideRecapHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Previsioni Maree"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Livello Massimo Marea Previsto:"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold|italic"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:background="@color/colorAccent">
+
+            <ImageView
+                android:id="@+id/tideRecapIconLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:paddingEnd="8dp"
+                android:paddingRight="8dp"
+                tools:src="@drawable/extremalhigh"/>
+
+            <TextView
+                android:id="@+id/tideRecapDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                tools:text="80 cm = Marea sostenuta (tra 80cm e 109cm)"/>
+
+            <ImageView
+                android:id="@+id/tideRecapIconRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingLeft="8dp"
+                android:paddingStart="8dp"
+                tools:src="@drawable/extremalhigh"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tideTableTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/tideRecapHeader"
         android:layout_centerHorizontal="true"
         android:text="Previsioni complete"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -65,6 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </android.support.v7.widget.RecyclerView>
+
     </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

@@ -15,6 +15,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     final ProcessTideData processTideData = new ProcessTideData();
     private String extremalMaxValueDescription;
+    private TextView tideRecapDescription;
+    private ImageView tideRecapIconLeft;
+    private ImageView tideRecapIconRight;
+    private LinearLayout tideRecapHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Find all views in the main activity
+        tideRecapDescription = (TextView) findViewById(R.id.tideRecapDescription);
+        tideRecapIconLeft = (ImageView) findViewById(R.id.tideRecapIconLeft);
+        tideRecapIconRight = (ImageView) findViewById(R.id.tideRecapIconRight);
+        tideRecapHeader = (LinearLayout) findViewById(R.id.tideRecapHeader);
 
         // Set up the RecyclerView object
         mRecyclerView = (RecyclerView) findViewById(R.id.tideRecyclerview);
@@ -115,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
             if (mTideRecyclerViewAdapter != null) {
                 mTideRecyclerViewAdapter.clear();
             }
+            tideRecapHeader.setVisibility(View.GONE);
             processTideData.execute();
         }
     }
@@ -143,7 +157,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
                 Log.d(TAG, "onPostExecute: maxTideValueIndex " + getExtremalMaxValueIndex());
                 extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue);
+                tideRecapHeader.setVisibility(View.VISIBLE);
+                tideRecapDescription.setText(extremalMaxValueDescription);
                 Log.d(TAG, "onPostExecute: extremalValueDescription " + extremalMaxValueDescription);
+                int tideRecapIconImageResource = getTideRecapIcon(extremalMaxValue);
+                tideRecapIconLeft.setImageResource(tideRecapIconImageResource);
+                tideRecapIconRight.setImageResource(tideRecapIconImageResource);
+                // Load tide table and set to the adapter
                 mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
                 mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
                 swipeContainer.setRefreshing(false);
@@ -165,6 +185,25 @@ public class MainActivity extends AppCompatActivity {
                 } else
                     return null;
             }
+
+            private int getTideRecapIcon(int extremalValue) {
+                if (extremalValue >= 140) {
+                    return R.drawable.extremalextrahigh;
+                } else if (extremalValue >= 100) {
+                    return R.drawable.extremalveryhigh;
+                } else if (extremalValue >= 80) {
+                    return R.drawable.extremalhigh;
+                } else if (extremalValue >= 50) {
+                    return R.drawable.extremalnormal;
+                } else if (extremalValue >= -90) {
+                    return R.drawable.extremallow;
+                } else if (extremalValue < 90) {
+                    return R.drawable.extremalextralow;
+                } else
+                    return R.drawable.extremalunknown;
+            }
+
+
         }
     }
 }
