@@ -47,6 +47,10 @@ public class GetTideJsonData extends GetRawData {
         return mTides.indexOf(Collections.max(mTides));
     }
 
+    public String getExtremalMaxValueDateTime() {
+        return mTides.get(getExtremalMaxValueIndex()).getExtremalDate();
+    }
+
     public void execute() {
         super.setRawURL(mDestinationUri.toString());
         DownloadJsonData downloadJsonData = new DownloadJsonData();

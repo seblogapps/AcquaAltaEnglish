@@ -1,6 +1,7 @@
 package appinventor.ai_seblog2k.Acqua_Alta_English;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import java.util.List;
 public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder> {
 
     private static final String TAG = TideRecyclerViewAdapter.class.getSimpleName();
+    private static final int EXTREMAL_VALUE_THRESHOLD = 80;
 
     private List<Tide> mTideList;
     private Context mContext;
@@ -39,6 +41,9 @@ public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder
         tideViewHolder.extremalDate.setText(Utils.formatJSONDate(tideItem.getExtremalDate()));
         tideViewHolder.extremalType.setText(formatExtremalType(tideItem.getExtremalType()));
         tideViewHolder.extremalValue.setText(tideItem.getExtremalValue());
+        if (Integer.parseInt(tideItem.getExtremalValue()) >= EXTREMAL_VALUE_THRESHOLD) {
+            tideViewHolder.extremalValue.setTextColor(Color.RED);
+        }
     }
 
     @Override
