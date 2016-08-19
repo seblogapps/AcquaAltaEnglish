@@ -57,7 +57,7 @@ public class Tide implements Comparable<Tide> {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Tide{");
+        final StringBuilder sb = new StringBuilder("Tide{");
         sb.append("mForecastDate='").append(mForecastDate).append('\'');
         sb.append(", mExtremalDate='").append(mExtremalDate).append('\'');
         sb.append(", mExtremalType='").append(mExtremalType).append('\'');

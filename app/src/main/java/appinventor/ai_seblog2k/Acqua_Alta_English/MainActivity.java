@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeContainer;
 
     final ProcessTideData processTideData = new ProcessTideData();
-    private String extremalMaxValueDescription;
+
     private TextView tideRecapDescription;
     private ImageView tideRecapIconLeft;
     private ImageView tideRecapIconRight;
-    private LinearLayout tideRecapHeader;
+    private LinearLayout tideTableLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         tideRecapDescription = (TextView) findViewById(R.id.tideRecapDescription);
         tideRecapIconLeft = (ImageView) findViewById(R.id.tideRecapIconLeft);
         tideRecapIconRight = (ImageView) findViewById(R.id.tideRecapIconRight);
-        tideRecapHeader = (LinearLayout) findViewById(R.id.tideRecapHeader);
+        tideTableLayout = (LinearLayout) findViewById(R.id.tideRecapHeader);
 
         // Set up the RecyclerView object
         mRecyclerView = (RecyclerView) findViewById(R.id.tideRecyclerview);
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             if (mTideRecyclerViewAdapter != null) {
                 mTideRecyclerViewAdapter.clear();
             }
-            tideRecapHeader.setVisibility(View.GONE);
+            tideTableLayout.setVisibility(View.GONE);
             processTideData.execute();
         }
     }
@@ -151,39 +151,47 @@ public class MainActivity extends AppCompatActivity {
             protected void onPostExecute(String webData) {
                 super.onPostExecute(webData);
                 mTideList = getTides();
-                Log.d(TAG, "onPostExecute: mTideListSize " + mTideList.size());
-                Log.d(TAG, "onPostExecute: forecastDate " + Utils.formatJSONDate(getForecastDateTime()));
+                // Read from the tide forecast table forecast Date and Time
+                String forecastUpdateDateTime = Utils.formatJSONDate(getForecastDateTime());
+                Log.d(TAG, "onPostExecute: forecastDate " + forecastUpdateDateTime);
+                // Read from the tide forecast table the maximum value of the extremal tide level
                 int extremalMaxValue = getExtremalMaxValue();
                 Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
-                Log.d(TAG, "onPostExecute: maxTideValueIndex " + getExtremalMaxValueIndex());
-                extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue);
-                tideRecapHeader.setVisibility(View.VISIBLE);
-                tideRecapDescription.setText(extremalMaxValueDescription);
+                // From the max value of tide level, extract the string with the description of the tide level
+                String extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue);
                 Log.d(TAG, "onPostExecute: extremalValueDescription " + extremalMaxValueDescription);
+                tideRecapDescription.setText(extremalMaxValueDescription);
+                Log.d(TAG, "onPostExecute: maxTideValueIndex " + getExtremalMaxValueIndex());
+                // Depending on the max extremal value, set the tide recap icon, both left and right
                 int tideRecapIconImageResource = getTideRecapIcon(extremalMaxValue);
                 tideRecapIconLeft.setImageResource(tideRecapIconImageResource);
                 tideRecapIconRight.setImageResource(tideRecapIconImageResource);
-                // Load tide table and set to the adapter
+                // Make the full table with recap of the tide levels visible
+                tideTableLayout.setVisibility(View.VISIBLE);
+                // Load tide table data and set to the adapter
                 mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
                 mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
                 swipeContainer.setRefreshing(false);
             }
 
             private String getExtremalMaxValueDescription(int extremalValue) {
+                final StringBuilder sb = new StringBuilder("" + extremalValue);
+                sb.append("cm = ");
                 if (extremalValue >= 140) {
-                    return "Alta marea eccezionale oltre 140cm";
+                    sb.append("Alta marea eccezionale (oltre 140cm)");
                 } else if (extremalValue >= 100) {
-                    return "Marea molto sostenuta +110 ÷ +139";
+                    sb.append("Marea molto sostenuta (tra 110cm e 139cm)");
                 } else if (extremalValue >= 80) {
-                    return "Marea sostenuta +80 ÷ +109";
+                    sb.append("Marea sostenuta (tra 80cm e 109cm)");
                 } else if (extremalValue >= 50) {
-                    return "Marea normale -50 ÷ +79";
+                    sb.append("Marea normale (tra -50cm e 79cm)");
                 } else if (extremalValue >= -90) {
-                    return "Marea sotto i valori normali -90 ÷ -51";
+                    sb.append("Marea sotto i valori normali (tra -90cm e -51cm)");
                 } else if (extremalValue < 90) {
-                    return "Bassa marea eccezionale <-90";
+                    sb.append("Bassa marea eccezionale (inferiore -90cm)");
                 } else
-                    return null;
+                    sb.append(" dato non previsto");
+                return sb.toString();
             }
 
             private int getTideRecapIcon(int extremalValue) {
