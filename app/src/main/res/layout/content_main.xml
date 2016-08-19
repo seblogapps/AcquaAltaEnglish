@@ -32,9 +32,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
             android:text="Livello Massimo Marea Previsto:"
             android:textAlignment="center"
-            android:paddingBottom="4dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold|italic"/>
 
@@ -42,25 +42,27 @@
             android:id="@+id/tideDescriptionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="horizontal"
+            android:paddingBottom="4dp"
             android:paddingEnd="8dp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:paddingStart="8dp"
-            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
             tools:background="@drawable/gradientnormal">
 
             <ImageView
                 android:id="@+id/tideRecapIconLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 tools:src="@drawable/extremalhigh"/>
 
             <TextView
                 android:id="@+id/tideRecapDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:textAlignment="center"
                 tools:text="80 cm = Marea sostenuta (tra 80cm e 109cm)"/>
@@ -69,6 +71,7 @@
                 android:id="@+id/tideRecapIconRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 tools:src="@drawable/extremalhigh"/>
 
         </LinearLayout>
@@ -144,5 +147,15 @@
         </android.support.v7.widget.RecyclerView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/tideForecastDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/swipeContainer"
+        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        tools:text="Ultimo aggiornamento: 18/08/2016 alle 13:30"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
 
 </RelativeLayout>

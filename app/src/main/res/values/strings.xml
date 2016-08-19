@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Acqua Alta Beta</string>
+    <string name="app_name">Acqua Alta Venezia</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_tide_graph">Tide Graph</string>
     <string name="action_tideGraph">Tide Graph</string>
