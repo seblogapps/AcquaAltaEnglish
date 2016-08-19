@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 String forecastUpdateDateTime = Utils.formatJSONDate(getForecastDateTime());
                 Log.d(TAG, "onPostExecute: forecastDate " + forecastUpdateDateTime);
                 // Read from the tide forecast table the maximum value of the extremal tide level
-                int extremalMaxValue = 110;//getExtremalMaxValue();
+                int extremalMaxValue = getExtremalMaxValue();
                 Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
                 // From the max value of tide level, extract the string with the description of the tide level
                 String extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue);
@@ -183,11 +183,11 @@ public class MainActivity extends AppCompatActivity {
                     sb.append("Marea molto sostenuta (tra 110cm e 139cm)");
                 } else if (extremalValue >= 80) {
                     sb.append("Marea sostenuta (tra 80cm e 109cm)");
-                } else if (extremalValue >= 50) {
+                } else if (extremalValue >= -50) {
                     sb.append("Marea normale (tra -50cm e 79cm)");
                 } else if (extremalValue >= -90) {
                     sb.append("Marea sotto i valori normali (tra -90cm e -51cm)");
-                } else if (extremalValue < 90) {
+                } else if (extremalValue < -90) {
                     sb.append("Bassa marea eccezionale (inferiore -90cm)");
                 } else
                     sb.append(" dato non previsto");
@@ -201,11 +201,11 @@ public class MainActivity extends AppCompatActivity {
                     return R.drawable.extremalveryhigh;
                 } else if (extremalValue >= 80) {
                     return R.drawable.extremalhigh;
-                } else if (extremalValue >= 50) {
+                } else if (extremalValue >= -50) {
                     return R.drawable.extremalnormal;
                 } else if (extremalValue >= -90) {
                     return R.drawable.extremallow;
-                } else if (extremalValue < 90) {
+                } else if (extremalValue < -90) {
                     return R.drawable.extremalextralow;
                 } else
                     return R.drawable.extremalunknown;
