@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -13,6 +14,21 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="appinventor.ai_seblog2k.Acqua_Alta.TideGraphActivity"
     tools:showIn="@layout/activity_tide_graph">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:id="@+id/adViewLinearLayoutTideGraph">
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewTideGraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id_tidegraph">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
 
     <uk.co.senab.photoview.PhotoView
         android:id="@+id/tideGraph"

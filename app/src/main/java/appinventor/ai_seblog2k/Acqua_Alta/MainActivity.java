@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // AdMob banner
+        MobileAds.initialize(getApplicationContext(), getResources().getString(R.string.banner_ad_unit_id));
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice("11EE834DE9176B621F70C33C75B7E126")
@@ -91,11 +93,12 @@ public class MainActivity extends AppCompatActivity {
                 (ContextCompat.getColor(context, android.R.color.holo_orange_light)),
                 (ContextCompat.getColor(context, android.R.color.holo_red_light)));
 
-        GetRawData mGetRawData = new GetRawData("http://dati.venezia.it/sites/default/files/dataset/opendata/previsione.json");
-        mGetRawData.execute();
-
-        GetTideJsonData mGetTideJsonData = new GetTideJsonData();
-        mGetTideJsonData.execute();
+          // Use only during debug development
+//        GetRawData mGetRawData = new GetRawData("http://dati.venezia.it/sites/default/files/dataset/opendata/previsione.json");
+//        mGetRawData.execute();
+//
+//        GetTideJsonData mGetTideJsonData = new GetTideJsonData();
+//        mGetTideJsonData.execute();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

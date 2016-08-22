@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -25,6 +27,12 @@ public class TideGraphActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        AdView mAdView = (AdView) findViewById(R.id.adViewTideGraph);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("11EE834DE9176B621F70C33C75B7E126")
+                .build();
+        mAdView.loadAd(adRequest);
 
         // Create a PhotoView object to store the tideGraph (PhotoView library used to implement pinch-to-zoom)
         tideImageView = (PhotoView) findViewById(R.id.tideGraph);

@@ -11,7 +11,7 @@
     <string name="InfoDialogTitle">About</string>
     <string name="InfoDialogMessage">Copyright @2016 SeblogApps\nTutti i diritti riservati\nVersione 4.0\nSi ringrazia il Comune di Venezia per i dati forniti\nNon si accetta alcuna responsabilità sull\'esattezza dei dati forniti</string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-
+    <string name="banner_ad_unit_id">ca-app-pub-7349086147955397/1988355210</string>
+    <string name="banner_ad_unit_id_tidegraph">ca-app-pub-7349086147955397/3325487617</string>
 
 </resources>
