@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Acqua Alta</string>
     <string name="app_toolbarname">Acqua Alta Venezia</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_tide_graph">Tide Graph</string>
     <string name="action_tideGraph">Tide Graph</string>
     <string name="title_activity_web_cam">Select WebCam</string>
@@ -13,5 +12,12 @@
 
     <string name="banner_ad_unit_id">ca-app-pub-7349086147955397/1988355210</string>
     <string name="banner_ad_unit_id_tidegraph">ca-app-pub-7349086147955397/3325487617</string>
+    <string name="tideTableRecapHeader_Title">Previsioni Maree</string>
+    <string name="tideTableRecapHeader_subTitle">Livello Massimo Marea Previsto:</string>
+    <string name="tideTableHeader_Title">Previsioni complete</string>
+    <string name="tideTableHeader_date">Data</string>
+    <string name="tideTableHeader_extremal">Estremale</string>
+    <string name="tideTableHeader_value">Valore (cm)</string>
+    <string name="webcam_accessibilityDescription">WebCam Image</string>
 
 </resources>

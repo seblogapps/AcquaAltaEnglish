@@ -25,8 +25,9 @@ public class TideGraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tide_graph);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         AdView mAdView = (AdView) findViewById(R.id.adViewTideGraph);
         AdRequest adRequest = new AdRequest.Builder()

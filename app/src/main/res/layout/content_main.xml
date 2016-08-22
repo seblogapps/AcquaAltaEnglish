@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Previsioni Maree"
+            android:text="@string/tideTableRecapHeader_Title"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"/>
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="4dp"
-            android:text="Livello Massimo Marea Previsto:"
+            android:text="@string/tideTableRecapHeader_subTitle"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold|italic"/>
@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Previsioni complete"
+            android:text="@string/tideTableHeader_Title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="normal|bold"/>
 
@@ -114,7 +114,7 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingStart="8dp"
-                android:text="Data"
+                android:text="@string/tideTableHeader_date"
                 android:textStyle="normal|bold"/>
 
             <TextView
@@ -124,7 +124,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:text="Estremale"
+                android:text="@string/tideTableHeader_extremal"
                 android:textStyle="bold"/>
 
             <TextView
@@ -139,7 +139,7 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingStart="8dp"
-                android:text="Valore (cm)"
+                android:text="@string/tideTableHeader_value"
                 android:textStyle="bold"/>
 
         </RelativeLayout>
