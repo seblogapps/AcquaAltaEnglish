@@ -25,7 +25,7 @@
         android:layout_toEndOf="@+id/webcam_thumbnail"
         android:layout_toRightOf="@+id/webcam_thumbnail"
         android:gravity="center|top"
-        android:maxLines="3"
+        android:maxLines="4"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         tools:text="S.Marco\nTorre dell'Orologio 1"/>
