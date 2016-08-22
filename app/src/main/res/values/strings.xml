@@ -9,9 +9,9 @@
     <string name="action_info">Info</string>
     <string name="title_activity_fullscreen_web_cam">WebCam</string>
     <string name="InfoDialogTitle">About</string>
-    <string name="InfoDialogMessage">Copyright @2016 SeblogApps\n
-        Tutti i diritti riservati\n
-        Versione 4.0\n
-        Si ringrazia il Comune di Venezia per i dati forniti\n
-        Non si accetta alcuna responsabilità sull\'esattezza dei dati forniti</string>
+    <string name="InfoDialogMessage">Copyright @2016 SeblogApps\nTutti i diritti riservati\nVersione 4.0\nSi ringrazia il Comune di Venezia per i dati forniti\nNon si accetta alcuna responsabilità sull\'esattezza dei dati forniti</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+
 </resources>

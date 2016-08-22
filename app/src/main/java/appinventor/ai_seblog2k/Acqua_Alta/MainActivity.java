@@ -19,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.app_toolbarname);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // AdMob banner
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("11EE834DE9176B621F70C33C75B7E126")
+                .build();
+        mAdView.loadAd(adRequest);
 
         // Find all views in the main activity
         tideRecapDescription = (TextView) findViewById(R.id.tideRecapDescription);
