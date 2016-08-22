@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tideForecastDate;
 
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     String fakeWebData =
             "[{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-19 18:25:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-100\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 00:10:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"143\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 06:35:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-30\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 13:05:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 19:00:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 00:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"65\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 07:05:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-20\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 13:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 19:40:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"}]";
 
@@ -63,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 .addTestDevice("11EE834DE9176B621F70C33C75B7E126")
                 .build();
         mAdView.loadAd(adRequest);
+
+        // FireBase analytics
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         // Find all views in the main activity
         tideRecapDescription = (TextView) findViewById(R.id.tideRecapDescription);
@@ -125,11 +131,23 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_tideGraph) {
+            // FireBase Analytics SELECT_CONTENT logging
+            Bundle bundle = new Bundle();
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "selected action");
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "action TideGraph");
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             Intent intent = new Intent(this, TideGraphActivity.class);
             startActivity(intent);
         }
 
         if (id == R.id.action_webCams) {
+            // FireBase Analytics SELECT_CONTENT logging
+            Bundle bundle = new Bundle();
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "selected action");
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "action WebCams");
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             Intent intent = new Intent(this, WebCamActivity.class);
             startActivity(intent);
         }
