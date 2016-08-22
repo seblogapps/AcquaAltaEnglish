@@ -19,5 +19,8 @@
     <string name="tideTableHeader_extremal">Estremale</string>
     <string name="tideTableHeader_value">Valore (cm)</string>
     <string name="webcam_accessibilityDescription">WebCam Image</string>
+    <string name="snackbar_InternetConnectionNeeded">Internet connection needed</string>
+    <string name="tideForecast_lastUpdateText">"Ultimo aggiornamento: "</string>
+    <string name="tideForecast_lastUpdateText_at">" alle "</string>
 
 </resources>

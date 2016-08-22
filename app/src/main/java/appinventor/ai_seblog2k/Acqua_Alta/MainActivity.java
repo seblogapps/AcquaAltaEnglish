@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
     String fakeWebData =
             "[{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-19 18:25:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-100\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 00:10:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"143\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 06:35:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-30\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 13:05:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 19:00:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 00:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"65\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 07:05:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-20\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 13:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 19:40:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"}]";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateTideData() {
         // No internet connection
         if (!Utils.hasInternetConnection(getApplicationContext())) {
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), "Internet connection needed", Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), R.string.snackbar_InternetConnectionNeeded, Snackbar.LENGTH_LONG);
             snackbar.setAction("Action", null);
             snackbar.show();
             if (swipeContainer != null)
@@ -217,9 +216,9 @@ public class MainActivity extends AppCompatActivity {
                 tideDescriptionLayout.setBackgroundResource((getTideRecapBackground(extremalMaxValue)));
                 // Read from the tide forecast the last update date of the forecast and load it to textView
                 String tideForecastDateTime = getForecastDateTime();
-                tideForecastDate.setText(new StringBuilder().append("Ultimo aggiornamento: ")
+                tideForecastDate.setText(new StringBuilder().append(getString(R.string.tideForecast_lastUpdateText))
                         .append(Utils.formatJSONDate(tideForecastDateTime))
-                        .append(" alle ")
+                        .append(getString(R.string.tideForecast_lastUpdateText_at))
                         .append(Utils.formatJSONTime(tideForecastDateTime))
                         .toString());
                 // Set the full table (including recap of the tide levels visible)
@@ -234,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 String extremalDate = Utils.formatJSONDate(extremalDateTime);
                 String extremalTime = Utils.formatJSONTime(extremalDateTime);
                 final StringBuilder sb = new StringBuilder("" + extremalValue);
+                // TODO: Replace with strings from string.xml
                 sb.append("cm ");
                 sb.append("il ");
                 sb.append(extremalDate);
