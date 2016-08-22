@@ -1,4 +1,4 @@
-package appinventor.ai_seblog2k.Acqua_Alta_English;
+package appinventor.ai_seblog2k.Acqua_Alta;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

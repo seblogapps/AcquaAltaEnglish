@@ -4,7 +4,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#80d8ff"
-                tools:context="appinventor.ai_seblog2k.Acqua_Alta_English.FullscreenWebCam">
+                tools:context="appinventor.ai_seblog2k.Acqua_Alta.FullscreenWebCam">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,

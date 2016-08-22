@@ -1,4 +1,4 @@
-package appinventor.ai_seblog2k.Acqua_Alta_English;
+package appinventor.ai_seblog2k.Acqua_Alta;
 
 import android.content.Context;
 import android.content.Intent;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle(R.string.app_toolbarname);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -118,6 +119,11 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_webCams) {
             Intent intent = new Intent(this, WebCamActivity.class);
             startActivity(intent);
+        }
+
+        if (id == R.id.action_info) {
+            InfoClassDialogFragment mInfoClassDialogFragment = new InfoClassDialogFragment();
+            mInfoClassDialogFragment.show(getSupportFragmentManager(), "Dialog");
         }
 
         return super.onOptionsItemSelected(item);

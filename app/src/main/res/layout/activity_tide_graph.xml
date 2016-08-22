@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="appinventor.ai_seblog2k.Acqua_Alta_English.TideGraphActivity">
+    tools:context="appinventor.ai_seblog2k.Acqua_Alta.TideGraphActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
