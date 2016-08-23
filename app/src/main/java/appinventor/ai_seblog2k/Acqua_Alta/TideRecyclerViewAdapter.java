@@ -63,9 +63,9 @@ public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder
 
     private String formatExtremalType(String rawExtremal) {
         if (rawExtremal.toLowerCase().contains("min")) {
-            return mContext.getString(R.string.extremal_min);
+            return mContext.getString(R.string.extremal_Min);
         } else if (rawExtremal.toLowerCase().contains("max")) {
-            return mContext.getString(R.string.extremal_max);
+            return mContext.getString(R.string.extremal_Max);
         } else {
             return rawExtremal;
         }

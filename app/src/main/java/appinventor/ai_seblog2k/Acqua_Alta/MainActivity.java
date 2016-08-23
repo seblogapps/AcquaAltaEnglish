@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 String extremalDate = Utils.formatJSONDate(extremalDateTime);
                 String extremalTime = Utils.formatJSONTime(extremalDateTime);
                 final StringBuilder sb = new StringBuilder("" + extremalValue);
-                sb.append(getString(R.string.extremalValueDesc_units));
+                sb.append(getString(R.string.extremalValueDesc_Units));
                 sb.append(getString(R.string.extremalValueDesc_onDate));
                 sb.append(extremalDate);
                 sb.append(getString(R.string.extremalValueDesc_atTime));

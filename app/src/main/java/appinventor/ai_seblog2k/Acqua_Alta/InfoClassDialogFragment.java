@@ -16,9 +16,10 @@ public class InfoClassDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
+        String versionName = BuildConfig.VERSION_NAME;
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.InfoDialogTitle)
-                .setMessage(R.string.InfoDialogMessage)
+        builder.setTitle(getString(R.string.app_name) + " - " + versionName)
+                .setMessage(R.string.info_DialogMessage)
                 .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // no nothing

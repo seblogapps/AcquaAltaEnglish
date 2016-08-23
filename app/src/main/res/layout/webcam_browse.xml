@@ -12,7 +12,7 @@
         tools:layout_height="200dp"
         tools:layout_width="165dp"
         tools:src="@drawable/webcamplaceholder"
-        android:contentDescription="@string/webcam_accessibilityDescription"/>
+        android:contentDescription="@string/webcam_AccessibilityDescription"/>
 
     <TextView
         android:id="@+id/webcam_description"
