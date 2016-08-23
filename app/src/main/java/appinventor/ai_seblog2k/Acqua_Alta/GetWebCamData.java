@@ -12,17 +12,6 @@ import java.util.List;
 
 public class GetWebCamData {
 
-//    private static final String[] webCamUrls = {"http://93.62.201.235/maree/WEBCAM/smarcoweb1.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/smarcoweb2.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/smarcoweb3.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/rialtoweb1.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/rialtoweb2.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/muranoweb1.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/muranoweb2.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/muranoweb3.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/saluteweb1.jpg",
-//            "http://93.62.201.235/maree/WEBCAM/saluteweb2.jpg"};
-
     private static final String TAG = GetWebCamData.class.getSimpleName();
 
     private List<WebCam> mWebCams;
