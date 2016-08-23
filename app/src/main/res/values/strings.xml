@@ -1,39 +1,39 @@
 <resources>
     <string name="app_name">Acqua Alta</string>
-    <string name="app_toolbarname">Acqua Alta Venezia</string>
+    <string name="app_toolbarname">Venice High Tide</string>
     <string name="title_activity_tide_graph">Tide Graph</string>
     <string name="title_activity_web_cam">Select WebCam</string>
-    <string name="title_activity_fullscreen_web_cam">WebCam</string>
+    <string name="title_activity_fullscreen_web_cam">Selected WebCam</string>
     <string name="action_tideGraph">Tide Graph</string>
     <string name="action_webcams">WebCams</string>
-    <string name="action_info">Info</string>
-    <string name="info_DialogMessage">Copyright @2016 SeblogApps\nTutti i diritti riservati\nSi ringrazia il Comune di Venezia per i dati forniti\nNon si accetta alcuna responsabilità sull\'esattezza dei dati forniti</string>
+    <string name="action_info">About</string>
+    <string name="info_DialogMessage">Copyright @2016 SeblogApps\nAll rights reserved\nSpecial thanks to Venice council for the provided data\nThe information contained in this app is for general information purposes only. The information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
     <!--AdMob-->
-    <string name="banner_ad_unit_id">ca-app-pub-7349086147955397/1988355210</string>
-    <string name="banner_ad_unit_id_tidegraph">ca-app-pub-7349086147955397/3325487617</string>
-    <string name="tideTableRecapHeader_Title">Previsioni Maree</string>
-    <string name="tideTableRecapHeader_SubTitle">Livello Massimo Marea Previsto:</string>
-    <string name="tideTableHeader_Title">Previsioni complete</string>
-    <string name="tideTableHeader_Date">Data</string>
-    <string name="tideTableHeader_Extremal">Estremale</string>
-    <string name="tideTableHeader_Value">Valore (cm)</string>
-    <string name="webcam_AccessibilityDescription">WebCam Image</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7349086147955397/1988355210</string>
+    <string name="banner_ad_unit_id_tidegraph" translatable="false">ca-app-pub-7349086147955397/3325487617</string>
+    <string name="tideTableRecapHeader_Title">Tidal predictions</string>
+    <string name="tideTableRecapHeader_SubTitle">Maximum predicted tide level:</string>
+    <string name="tideTableHeader_Title">Prediction table</string>
+    <string name="tideTableHeader_Date">Date time</string>
+    <string name="tideTableHeader_Extremal">Extreme</string>
+    <string name="tideTableHeader_Value">Value (cm)</string>
+    <string name="webcam_AccessibilityDescription" translatable="false">WebCam Image</string>
     <string name="snackbar_InternetConnectionNeeded">Internet connection needed</string>
-    <string name="tideForecast_lastUpdateText">"Ultimo aggiornamento: "</string>
-    <string name="tideForecast_lastUpdateText_at">" alle "</string>
+    <string name="tideForecast_lastUpdateText">"Last Update: "</string>
+    <string name="tideForecast_lastUpdateText_at">" at "</string>
     <!--Extremal values descriptions-->
-    <string name="extremalValueDesc_ExtraHigh">Alta marea eccezionale (oltre 140cm)</string>
-    <string name="extremalValueDesc_VeryHigh">Marea molto sostenuta (tra 110cm e 139cm)</string>
-    <string name="extremalValueDesc_High">Marea sostenuta (tra 80cm e 109cm)</string>
-    <string name="extremalValueDesc_Normal">Marea normale (tra -50cm e 79cm)</string>
-    <string name="extremalValueDesc_Low">Marea sotto i valori normali (tra -90cm e -51cm)</string>
-    <string name="extremalValueDesc_ExtraLow">Bassa marea eccezionale (inferiore -90cm)</string>
-    <string name="extremalValueDesc_Unknown">Dato non previsto</string>
-    <string name="extremalValueDesc_Units">"cm "</string>
-    <string name="extremalValueDesc_onDate">"il "</string>
-    <string name="extremalValueDesc_atTime">" alle "</string>
-    <string name="extremal_Min">minimo</string>
-    <string name="extremal_Max">massimo</string>
+    <string name="extremalValueDesc_ExtraHigh">Exceptional high tide (over  140cm)</string>
+    <string name="extremalValueDesc_VeryHigh">Very high tide (betw. 110cm and 139cm)</string>
+    <string name="extremalValueDesc_High">High tide (between  80cm and 109cm)</string>
+    <string name="extremalValueDesc_Normal">Normal tide (betw. -50cm and 79cm)</string>
+    <string name="extremalValueDesc_Low">Tide under the normal level (betw. -90cm and -51cm)</string>
+    <string name="extremalValueDesc_ExtraLow">Exceptional low tide (less than -90cm)</string>
+    <string name="extremalValueDesc_Unknown">Unexpected value</string>
+    <string name="extremalValueDesc_Units" translatable="false">"cm "</string>
+    <string name="extremalValueDesc_onDate">"on "</string>
+    <string name="extremalValueDesc_atTime">" at "</string>
+    <string name="extremal_Min">minimum</string>
+    <string name="extremal_Max">maximum</string>
     <!--WebCam names-->
     <array name="WebCam_Descriptions">
         <item>S.Marco \nTorre dell\'Orologio 1</item>

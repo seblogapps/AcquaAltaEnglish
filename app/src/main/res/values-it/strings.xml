@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Acqua Alta</string>
+    <string name="app_toolbarname">Acqua Alta Venezia</string>
+    <string name="action_tideGraph">Grafico Marea</string>
+    <string name="action_webcams">WebCam</string>
+    <string name="extremalValueDesc_ExtraHigh">Alta marea eccezionale (oltre 140cm)</string>
+    <string name="extremalValueDesc_ExtraLow">Bassa marea eccezionale (inferiore -90cm)</string>
+    <string name="extremalValueDesc_High">Marea sostenuta (tra 80cm e 109cm)</string>
+    <string name="extremalValueDesc_Low">Marea sotto i valori normali (tra -90cm e -51cm)</string>
+    <string name="extremalValueDesc_Normal">Marea normale (tra -50cm e 79cm)</string>
+    <string name="extremalValueDesc_Unknown">Dato non previsto</string>
+    <string name="extremalValueDesc_VeryHigh">Marea molto sostenuta (tra 110cm e 139cm)</string>
+    <string name="extremalValueDesc_atTime">" alle "</string>
+    <string name="extremalValueDesc_onDate">"il "</string>
+    <string name="extremal_Max">massimo</string>
+    <string name="extremal_Min">minimo</string>
+    <string name="info_DialogMessage">Copyright @2016 SeblogApps Tutti i diritti riservati Si ringrazia il Comune di Venezia per i dati forniti Non si accetta alcuna responsabilità sull\'esattezza dei dati forniti</string>
+    <string name="snackbar_InternetConnectionNeeded">Connessione internet assente</string>
+    <string name="tideForecast_lastUpdateText">"Ultimo aggiornamento: "</string>
+    <string name="tideForecast_lastUpdateText_at">" alle "</string>
+    <string name="tideTableHeader_Date">Data e ora</string>
+    <string name="tideTableHeader_Extremal">Estremale</string>
+    <string name="tideTableHeader_Title">Previsioni complete</string>
+    <string name="tideTableHeader_Value">Valore (cm)</string>
+    <string name="tideTableRecapHeader_SubTitle">Livello Massimo Marea Previsto:</string>
+    <string name="tideTableRecapHeader_Title">Previsioni Maree</string>
+    <string name="title_activity_fullscreen_web_cam">WebCam selezionata</string>
+    <string name="title_activity_tide_graph">Grafico Marea</string>
+    <string name="title_activity_web_cam">Seleziona una WebCam</string>
+    <string name="action_info">Info</string>
 </resources>
