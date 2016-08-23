@@ -155,7 +155,6 @@
             android:paddingStart="8dp"
             android:text="@string/tideTableHeader_Value"
             android:textStyle="bold"/>
-
     </RelativeLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout

@@ -40,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tideRecapDescription;
     private ImageView tideRecapIconLeft;
     private ImageView tideRecapIconRight;
-//    private LinearLayout tideTableRecapLayout;
-//    private LinearLayout tideDescriptionLayout;
-private RelativeLayout tideTableRecapLayout;
+    private RelativeLayout tideTableRecapLayout;
     private RelativeLayout tideDescriptionLayout;
 
     private TextView tideForecastDate;
@@ -77,8 +75,6 @@ private RelativeLayout tideTableRecapLayout;
         tideForecastDate = (TextView) findViewById(R.id.tideForecastDate);
         tideRecapIconLeft = (ImageView) findViewById(R.id.tideRecapIconLeft);
         tideRecapIconRight = (ImageView) findViewById(R.id.tideRecapIconRight);
-//        tideTableRecapLayout = (LinearLayout) findViewById(R.id.tideTableRecapHeader);
-//        tideDescriptionLayout = (LinearLayout) findViewById(R.id.tideDescriptionLayout);
         tideTableRecapLayout = (RelativeLayout) findViewById(R.id.tideTableRecapHeader);
         tideDescriptionLayout = (RelativeLayout) findViewById(R.id.tideDescriptionLayout);
 
@@ -176,7 +172,7 @@ private RelativeLayout tideTableRecapLayout;
             snackbar.show();
             if (swipeContainer != null)
                 swipeContainer.setRefreshing(false);
-        // Internet connection available, download fresh data
+            // Internet connection available, download fresh data
         } else {
             if (mTideRecyclerViewAdapter != null) {
                 mTideRecyclerViewAdapter.clear();
