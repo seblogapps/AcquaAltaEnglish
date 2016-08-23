@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "selected action");
             bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "action TideGraph");
-            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "TideGraph");
             mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             Intent intent = new Intent(this, TideGraphActivity.class);
             startActivity(intent);
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "selected action");
             bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "action WebCams");
-            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "WebCams");
             mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             Intent intent = new Intent(this, WebCamActivity.class);
             startActivity(intent);

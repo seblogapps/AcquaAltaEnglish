@@ -33,6 +33,8 @@
     <string name="extremalValueDesc_units">"cm "</string>
     <string name="extremalValueDesc_onDate">"il "</string>
     <string name="extremalValueDesc_atTime">" alle "</string>
+    <string name="extremal_min">minimo</string>
+    <string name="extremal_max">massimo</string>
     <!--WebCam names-->
     <array name="WebCam_Descriptions">
         <item>S.Marco \nTorre dell\'Orologio 1</item>
