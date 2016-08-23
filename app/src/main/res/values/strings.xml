@@ -22,6 +22,17 @@
     <string name="snackbar_InternetConnectionNeeded">Internet connection needed</string>
     <string name="tideForecast_lastUpdateText">"Ultimo aggiornamento: "</string>
     <string name="tideForecast_lastUpdateText_at">" alle "</string>
+    <!--Extremal values descriptions-->
+    <string name="extremalValueDesc_ExtraHigh">Alta marea eccezionale (oltre 140cm)</string>
+    <string name="extremalValueDesc_VeryHigh">Marea molto sostenuta (tra 110cm e 139cm)</string>
+    <string name="extremalValueDesc_High">Marea sostenuta (tra 80cm e 109cm)</string>
+    <string name="extremalValueDesc_Normal">Marea normale (tra -50cm e 79cm)</string>
+    <string name="extremalValueDesc_Low">Marea sotto i valori normali (tra -90cm e -51cm)</string>
+    <string name="extremalValueDesc_ExtraLow">Bassa marea eccezionale (inferiore -90cm)</string>
+    <string name="extremalValueDesc_Unknown">Dato non previsto</string>
+    <string name="extremalValueDesc_units">"cm "</string>
+    <string name="extremalValueDesc_onDate">"il "</string>
+    <string name="extremalValueDesc_atTime">" alle "</string>
     <!--WebCam names-->
     <array name="WebCam_Descriptions">
         <item>S.Marco \nTorre dell\'Orologio 1</item>

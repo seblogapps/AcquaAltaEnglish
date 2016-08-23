@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 (ContextCompat.getColor(context, android.R.color.holo_orange_light)),
                 (ContextCompat.getColor(context, android.R.color.holo_red_light)));
 
-          // Use only during debug development
+        // Used only during debug development
 //        GetRawData mGetRawData = new GetRawData("http://dati.venezia.it/sites/default/files/dataset/opendata/previsione.json");
 //        mGetRawData.execute();
 //
@@ -233,27 +233,26 @@ public class MainActivity extends AppCompatActivity {
                 String extremalDate = Utils.formatJSONDate(extremalDateTime);
                 String extremalTime = Utils.formatJSONTime(extremalDateTime);
                 final StringBuilder sb = new StringBuilder("" + extremalValue);
-                // TODO: Replace with strings from string.xml
-                sb.append("cm ");
-                sb.append("il ");
+                sb.append(getString(R.string.extremalValueDesc_units));
+                sb.append(getString(R.string.extremalValueDesc_onDate));
                 sb.append(extremalDate);
-                sb.append(" alle ");
+                sb.append(getString(R.string.extremalValueDesc_atTime));
                 sb.append(extremalTime);
                 sb.append("\n");
                 if (extremalValue >= 140) {
-                    sb.append("Alta marea eccezionale (oltre 140cm)");
+                    sb.append(getString(R.string.extremalValueDesc_ExtraHigh));
                 } else if (extremalValue >= 100) {
-                    sb.append("Marea molto sostenuta (tra 110cm e 139cm)");
+                    sb.append(getString(R.string.extremalValueDesc_VeryHigh));
                 } else if (extremalValue >= 80) {
-                    sb.append("Marea sostenuta (tra 80cm e 109cm)");
+                    sb.append(getString(R.string.extremalValueDesc_High));
                 } else if (extremalValue >= -50) {
-                    sb.append("Marea normale (tra -50cm e 79cm)");
+                    sb.append(getString(R.string.extremalValueDesc_Normal));
                 } else if (extremalValue >= -90) {
-                    sb.append("Marea sotto i valori normali (tra -90cm e -51cm)");
+                    sb.append(getString(R.string.extremalValueDesc_Low));
                 } else if (extremalValue < -90) {
-                    sb.append("Bassa marea eccezionale (inferiore -90cm)");
+                    sb.append(getString(R.string.extremalValueDesc_ExtraLow));
                 } else
-                    sb.append("dato non previsto");
+                    sb.append(getString(R.string.extremalValueDesc_Unknown));
                 return sb.toString();
             }
 
