@@ -22,5 +22,31 @@
     <string name="snackbar_InternetConnectionNeeded">Internet connection needed</string>
     <string name="tideForecast_lastUpdateText">"Ultimo aggiornamento: "</string>
     <string name="tideForecast_lastUpdateText_at">" alle "</string>
+    <!--WebCam names-->
+    <array name="WebCam_Descriptions">
+        <item>S.Marco \nTorre dell\'Orologio 1</item>
+        <item>S.Marco \nTorre dell\'Orologio 2</item>
+        <item>S.Marco \nTorre dell\'Orologio 3</item>
+        <item>Rialto \nPalazzo Cavalli 1</item>
+        <item>Rialto \nPalazzo Cavalli 2</item>
+        <item>Isola di Murano \nFaro 1</item>
+        <item>Isola di Murano \nFaro 2</item>
+        <item>Isola di Murano \nFaro 3</item>
+        <item>Bacino S.Marco \nPunta Salute 1</item>
+        <item>Bacino S.Marco \nPunta Salute 2</item>
+    </array>
+    <!--WebCam URLs-->
+    <array name="WebCam_URLs">
+        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb2.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb3.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/rialtoweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/rialtoweb2.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/muranoweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/muranoweb2.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/muranoweb3.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/saluteweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/saluteweb2.jpg</item>
+        </array>
 
 </resources>

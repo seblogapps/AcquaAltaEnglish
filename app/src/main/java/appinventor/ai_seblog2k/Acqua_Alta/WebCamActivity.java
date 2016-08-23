@@ -64,7 +64,7 @@ public class WebCamActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.webcamRecyclerview);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mGetWebCamData = new GetWebCamData();
+        mGetWebCamData = new GetWebCamData(this);
         mWebCamRecyclerViewAdapter = new WebCamRecyclerViewAdapter(WebCamActivity.this, mGetWebCamData.getWebCams());
         mRecyclerView.setAdapter(mWebCamRecyclerViewAdapter);
     }
