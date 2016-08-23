@@ -29,4 +29,17 @@
     <string name="title_activity_tide_graph">Grafico Marea</string>
     <string name="title_activity_web_cam">Seleziona una WebCam</string>
     <string name="action_info">Info</string>
+    <!--WebCam names-->
+    <array name="WebCam_Descriptions">
+        <item>S.Marco \nTorre dell\'Orologio 1</item>
+        <item>S.Marco \nTorre dell\'Orologio 2</item>
+        <item>S.Marco \nTorre dell\'Orologio 3</item>
+        <item>Rialto \nPalazzo Cavalli 1</item>
+        <item>Rialto \nPalazzo Cavalli 2</item>
+        <item>Isola di Murano \nFaro 1</item>
+        <item>Isola di Murano \nFaro 2</item>
+        <item>Isola di Murano \nFaro 3</item>
+        <item>Bacino S.Marco \nPunta Salute 1</item>
+        <item>Bacino S.Marco \nPunta Salute 2</item>
+    </array>
 </resources>

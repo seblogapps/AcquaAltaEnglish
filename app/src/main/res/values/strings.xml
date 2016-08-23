@@ -36,16 +36,16 @@
     <string name="extremal_Max">maximum</string>
     <!--WebCam names-->
     <array name="WebCam_Descriptions">
-        <item>S.Marco \nTorre dell\'Orologio 1</item>
-        <item>S.Marco \nTorre dell\'Orologio 2</item>
-        <item>S.Marco \nTorre dell\'Orologio 3</item>
+        <item>St Mark\'s\nClock Tower 1</item>
+        <item>St Mark\'s\nClock Tower 2</item>
+        <item>St Mark\'s\nClock Tower 3</item>
         <item>Rialto \nPalazzo Cavalli 1</item>
         <item>Rialto \nPalazzo Cavalli 2</item>
-        <item>Isola di Murano \nFaro 1</item>
-        <item>Isola di Murano \nFaro 2</item>
-        <item>Isola di Murano \nFaro 3</item>
-        <item>Bacino S.Marco \nPunta Salute 1</item>
-        <item>Bacino S.Marco \nPunta Salute 2</item>
+        <item>Murano island\nLighthouse 1</item>
+        <item>Murano island\nLighthouse 2</item>
+        <item>Murano island\nLighthouse 3</item>
+        <item>St Mark\'s basin\nPunta Salute 1</item>
+        <item>St Mark\'s basin\nPunta Salute 2</item>
     </array>
     <!--WebCam URLs-->
     <array name="WebCam_URLs">
