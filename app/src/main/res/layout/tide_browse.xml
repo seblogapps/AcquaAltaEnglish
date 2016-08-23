@@ -4,8 +4,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+>
 
     <TextView
         android:id="@+id/extremalDate"
@@ -19,8 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:paddingLeft="8dp"
-        android:paddingStart="8dp"
         tools:text="massimo"
         android:textAlignment="viewStart"
         android:gravity="start"/>
@@ -32,8 +29,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:paddingEnd="8dp"
-        android:paddingRight="8dp"
         android:textAlignment="center"
         android:visibility="visible"
         tools:text="60"/>

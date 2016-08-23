@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -40,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView tideRecapDescription;
     private ImageView tideRecapIconLeft;
     private ImageView tideRecapIconRight;
-    private LinearLayout tideTableRecapLayout;
-    private LinearLayout tideDescriptionLayout;
+//    private LinearLayout tideTableRecapLayout;
+//    private LinearLayout tideDescriptionLayout;
+private RelativeLayout tideTableRecapLayout;
+    private RelativeLayout tideDescriptionLayout;
 
     private TextView tideForecastDate;
 
@@ -68,14 +70,17 @@ public class MainActivity extends AppCompatActivity {
 
         // FireBase analytics
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
 
         // Find all views in the main activity
         tideRecapDescription = (TextView) findViewById(R.id.tideRecapDescription);
         tideForecastDate = (TextView) findViewById(R.id.tideForecastDate);
         tideRecapIconLeft = (ImageView) findViewById(R.id.tideRecapIconLeft);
         tideRecapIconRight = (ImageView) findViewById(R.id.tideRecapIconRight);
-        tideTableRecapLayout = (LinearLayout) findViewById(R.id.tideTableRecapHeader);
-        tideDescriptionLayout = (LinearLayout) findViewById(R.id.tideDescriptionLayout);
+//        tideTableRecapLayout = (LinearLayout) findViewById(R.id.tideTableRecapHeader);
+//        tideDescriptionLayout = (LinearLayout) findViewById(R.id.tideDescriptionLayout);
+        tideTableRecapLayout = (RelativeLayout) findViewById(R.id.tideTableRecapHeader);
+        tideDescriptionLayout = (RelativeLayout) findViewById(R.id.tideDescriptionLayout);
 
         // Set up the RecyclerView object
         mRecyclerView = (RecyclerView) findViewById(R.id.tideRecyclerview);
@@ -132,8 +137,10 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_tideGraph) {
             // FireBase Analytics SELECT_CONTENT logging
             Bundle bundle = new Bundle();
-            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "selected action");
-            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "action TideGraph");
+            String firebase_id = "tideGraph";
+            String firebase_name = "Selected Tide Graph Activity";
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, firebase_id);
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, firebase_name);
             bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "TideGraph");
             mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             Intent intent = new Intent(this, TideGraphActivity.class);
@@ -143,8 +150,10 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_webCams) {
             // FireBase Analytics SELECT_CONTENT logging
             Bundle bundle = new Bundle();
-            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "selected action");
-            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "action WebCams");
+            String firebase_id = "webCams";
+            String firebase_name = "Selected WebCam Activity";
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, firebase_id);
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, firebase_name);
             bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "WebCams");
             mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             Intent intent = new Intent(this, WebCamActivity.class);

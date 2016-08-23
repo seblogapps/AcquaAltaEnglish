@@ -35,25 +35,25 @@
             android:layout_height="wrap_content"
             android:text="@string/tideTableRecapHeader_Title"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="normal|bold"
             />
 
         <TextView
             android:id="@+id/tideTableHeaderSubTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tideTableHeaderTitle"
+            android:layout_centerInParent="true"
             android:paddingBottom="4dp"
             android:text="@string/tideTableRecapHeader_SubTitle"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold|italic"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/tideDescriptionLayout"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/tideTableRecapHeader"
         android:layout_centerInParent="true"
@@ -72,7 +72,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
             android:layout_gravity="center"
             tools:src="@drawable/extremalhigh"/>
 
@@ -92,7 +91,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_gravity="center"
             tools:src="@drawable/extremalhigh"/>
 
@@ -102,17 +100,28 @@
         android:id="@+id/tideTableTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tideDescriptionLayout"
+        android:layout_alignStart="@id/tideDescriptionLayout"
         android:layout_below="@id/tideDescriptionLayout"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:text="@string/tideTableHeader_Title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         />
+
+    <TextView
+        android:id="@+id/tideTableSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tideDescriptionLayout"
+        android:layout_toRightOf="@id/tideTableTitle"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/tideTableSeparatorChar"/>
 
     <RelativeLayout
         android:id="@+id/tideTableHeaders"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/tideTableTitle"
         android:layout_centerInParent="true">
@@ -124,10 +133,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_gravity="start"
-            android:paddingEnd="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingStart="8dp"
             android:text="@string/tideTableHeader_Date"
             android:textStyle="normal|bold"/>
 
@@ -149,10 +154,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="end"
-            android:paddingEnd="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingStart="8dp"
             android:text="@string/tideTableHeader_Value"
             android:textStyle="bold"/>
 
@@ -160,19 +161,15 @@
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="match_parent"
         android:layout_below="@+id/tideTableHeaders"
         android:layout_centerInParent="true">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/tideRecyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingEnd="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingStart="8dp">
+            android:layout_width="500dp"
+            android:layout_height="wrap_content">
         </android.support.v7.widget.RecyclerView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
@@ -181,8 +178,10 @@
         android:id="@+id/tideForecastDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:padding="8dp"
+        android:layout_alignEnd="@id/tideDescriptionLayout"
+        android:layout_alignRight="@id/tideDescriptionLayout"
+        android:layout_below="@id/tideDescriptionLayout"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         tools:text="Ultimo aggiornamento: 18/08/2016 alle 13:30"/>
+
 </RelativeLayout>
