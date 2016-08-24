@@ -22,7 +22,7 @@
 
     <RelativeLayout
         android:id="@+id/tideTitleHeader"
-        android:layout_width="500dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/adView"
         android:layout_centerHorizontal="true"
@@ -45,7 +45,7 @@
             android:id="@+id/tideTableHeaderSubTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/tideTableHeaderTitle"
+            android:layout_alignBaseline="@+id/tideTableHeaderTitle"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:text="@string/tideTableRecapHeader_SubTitle"
@@ -55,7 +55,7 @@
 
     <RelativeLayout
         android:id="@+id/tideDescriptionLayout"
-        android:layout_width="500dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/tideTitleHeader"
         android:layout_centerInParent="true"
@@ -98,9 +98,10 @@
 
     </RelativeLayout>
 
+
     <RelativeLayout
         android:id="@+id/tideTableHeaders"
-        android:layout_width="500dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/tideDescriptionLayout"
         android:layout_centerInParent="true"
@@ -169,7 +170,7 @@
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
-        android:layout_width="500dp"
+        android:layout_width="350dp"
         android:layout_height="match_parent"
         android:layout_below="@+id/tideTableHeaders"
         android:layout_centerInParent="true">
