@@ -42,4 +42,5 @@
         <item>Bacino S.Marco \nPunta Salute 1</item>
         <item>Bacino S.Marco \nPunta Salute 2</item>
     </array>
+    <string name="snackbar_NoInternetDatafromCache">Connessione assente, dati presi dalla cache</string>
 </resources>

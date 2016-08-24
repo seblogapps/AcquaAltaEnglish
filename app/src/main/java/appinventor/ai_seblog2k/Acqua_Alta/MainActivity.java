@@ -2,6 +2,7 @@ package appinventor.ai_seblog2k.Acqua_Alta;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,12 +31,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    protected static final String APPS_DATA = "HighTideAppData";
+    protected static final String TIDEJSONDATA_TAG = "SAVED_DATA";
     private List<Tide> mTideList = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private TideRecyclerViewAdapter mTideRecyclerViewAdapter;
     private SwipeRefreshLayout swipeContainer;
 
     final ProcessTideData processTideData = new ProcessTideData();
+
+    private ProcessTideSavedData processTideSavedData;
 
     private TextView tideRecapDescription;
     private ImageView tideRecapIconLeft;
@@ -177,13 +182,25 @@ public class MainActivity extends AppCompatActivity {
     public void updateTideData() {
         // No internet connection
         if (!Utils.hasInternetConnection(getApplicationContext())) {
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), R.string.snackbar_InternetConnectionNeeded, Snackbar.LENGTH_LONG);
-            snackbar.setAction("Action", null);
-            snackbar.show();
+            // If no internet connection, check if we have previously saved tide data in sharedpreferences
+            SharedPreferences mSharedPreferences = getSharedPreferences(APPS_DATA, MODE_PRIVATE);
+            String jsonSavedData = mSharedPreferences.getString(TIDEJSONDATA_TAG, null);
+            Log.d(TAG, "updateTideData: fromSharedPreferences " + jsonSavedData);
+            if (jsonSavedData != null) { // Some previous tide data stored on shared preferences
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), R.string.snackbar_NoInternetDatafromCache, Snackbar.LENGTH_LONG);
+                snackbar.setAction("Action", null);
+                snackbar.show();
+                processTideSavedData = new ProcessTideSavedData(jsonSavedData);
+                processTideSavedData.execute();
+
+            } else {    // No previous tide data stored on shared preferences
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), R.string.snackbar_InternetConnectionNeeded, Snackbar.LENGTH_LONG);
+                snackbar.setAction("Action", null);
+                snackbar.show();
+            }
             if (swipeContainer != null)
                 swipeContainer.setRefreshing(false);
-            // Internet connection available, download fresh data
-        } else {
+        } else { // Internet connection available, download fresh data
             if (mTideRecyclerViewAdapter != null) {
                 mTideRecyclerViewAdapter.clear();
             }
@@ -204,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Class to process the JSON data received from the network
     public class ProcessTideData extends GetTideJsonData {
 
         public ProcessTideData() {
@@ -220,6 +238,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String webData) {
                 super.onPostExecute(webData);
+                //Save fresh webData to Shared Preferences
+                SharedPreferences mSharedPreferences = getSharedPreferences(APPS_DATA, MODE_PRIVATE);
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putString(TIDEJSONDATA_TAG, webData);
+                editor.apply();
+                // Load tide values into mTideList ArrayList
                 mTideList = getTides();
                 // Read from the tide forecast table the maximum value of the extremal tide level
                 int extremalMaxValue = getExtremalMaxValue();
@@ -251,68 +275,114 @@ public class MainActivity extends AppCompatActivity {
                 mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
                 swipeContainer.setRefreshing(false);
             }
-
-            private String getExtremalMaxValueDescription(int extremalValue, String extremalDateTime) {
-                String extremalDate = Utils.formatJSONDate(extremalDateTime);
-                String extremalTime = Utils.formatJSONTime(extremalDateTime);
-                final StringBuilder sb = new StringBuilder("" + extremalValue);
-                sb.append(getString(R.string.extremalValueDesc_Units));
-                sb.append(getString(R.string.extremalValueDesc_onDate));
-                sb.append(extremalDate);
-                sb.append(getString(R.string.extremalValueDesc_atTime));
-                sb.append(extremalTime);
-                sb.append("\n");
-                if (extremalValue >= 140) {
-                    sb.append(getString(R.string.extremalValueDesc_ExtraHigh));
-                } else if (extremalValue >= 100) {
-                    sb.append(getString(R.string.extremalValueDesc_VeryHigh));
-                } else if (extremalValue >= 80) {
-                    sb.append(getString(R.string.extremalValueDesc_High));
-                } else if (extremalValue >= -50) {
-                    sb.append(getString(R.string.extremalValueDesc_Normal));
-                } else if (extremalValue >= -90) {
-                    sb.append(getString(R.string.extremalValueDesc_Low));
-                } else if (extremalValue < -90) {
-                    sb.append(getString(R.string.extremalValueDesc_ExtraLow));
-                } else
-                    sb.append(getString(R.string.extremalValueDesc_Unknown));
-                return sb.toString();
-            }
-
-            private int getTideRecapIcon(int extremalValue) {
-                if (extremalValue >= 140) {
-                    return R.drawable.extremalextrahigh;
-                } else if (extremalValue >= 100) {
-                    return R.drawable.extremalveryhigh;
-                } else if (extremalValue >= 80) {
-                    return R.drawable.extremalhigh;
-                } else if (extremalValue >= -50) {
-                    return R.drawable.extremalnormal;
-                } else if (extremalValue >= -90) {
-                    return R.drawable.extremallow;
-                } else if (extremalValue < -90) {
-                    return R.drawable.extremalextralow;
-                } else
-                    return R.drawable.extremalunknown;
-            }
-
-            private int getTideRecapBackground(int extremalValue) {
-                if (extremalValue >= 140) {
-                    return R.drawable.gradientextrahigh;
-                } else if (extremalValue >= 100) {
-                    return R.drawable.gradientveryhigh;
-                } else if (extremalValue >= 80) {
-                    return R.drawable.gradienthigh;
-                } else if (extremalValue >= -50) {
-                    return R.drawable.gradientnormal;
-                } else if (extremalValue >= -90) {
-                    return R.drawable.gradientlow;
-                } else if (extremalValue < -90) {
-                    return R.drawable.gradientextralow;
-                } else
-                    return R.drawable.gradientnormal;
-            }
         }
+    }
+
+    // Class to process the tide data that is stored on Shared Preferences (in case of no internet connection)
+    public class ProcessTideSavedData extends ProcessTideData {
+
+        private String savedData;
+
+        public ProcessTideSavedData(String savedData) {
+            super();
+            this.savedData = savedData;
+        }
+
+        @Override
+        public void execute() {
+            GetSavedTideData mGetSavedTideData = new GetSavedTideData();
+            mGetSavedTideData.processResult(savedData);
+            mTideList = mGetSavedTideData.getTides();
+            // Read from the tide forecast table the maximum value of the extremal tide level
+            int extremalMaxValue = mGetSavedTideData.getExtremalMaxValue();
+            Log.d(TAG, "onPostExecute: saved maxTideValue " + extremalMaxValue);
+            // From the max value of tide level, extract the string with the description of the tide level
+            // Read from the tide forecast the date and time for the next max tide event
+            String extremalMaxValueDateTime = mGetSavedTideData.getExtremalMaxValueDateTime();
+            Log.d(TAG, "onPostExecute: saved getExtremalMaxValueDateTime " + extremalMaxValueDateTime);
+            String extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue, extremalMaxValueDateTime);
+            tideRecapDescription.setText(extremalMaxValueDescription);
+            Log.d(TAG, "onPostExecute: saved extremalValueDescription " + extremalMaxValueDescription);
+            // Depending on the max extremal value, set the tide recap icon, both left and right
+            int tideRecapIconImageResource = getTideRecapIcon(extremalMaxValue);
+            tideRecapIconLeft.setImageResource(tideRecapIconImageResource);
+            tideRecapIconRight.setImageResource(tideRecapIconImageResource);
+            // Depending on the max extremal value, set the background for the description recap line
+            tideDescriptionLayout.setBackgroundResource((getTideRecapBackground(extremalMaxValue)));
+            // Read from the tide forecast the last update date of the forecast and load it to textView
+            String tideForecastDateTime = mGetSavedTideData.getForecastDateTime();
+            tideForecastDate.setText(new StringBuilder().append(getString(R.string.tideForecast_lastUpdateText))
+                    .append(Utils.formatJSONDate(tideForecastDateTime))
+                    .append(getString(R.string.tideForecast_lastUpdateText_at))
+                    .append(Utils.formatJSONTime(tideForecastDateTime))
+                    .toString());
+            // Set the full table (including recap of the tide levels) visible
+            showTideTable(true);
+            // Load tide table data and set to the adapter
+            mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
+            mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
+        }
+    }
+
+    protected String getExtremalMaxValueDescription(int extremalValue, String extremalDateTime) {
+        String extremalDate = Utils.formatJSONDate(extremalDateTime);
+        String extremalTime = Utils.formatJSONTime(extremalDateTime);
+        final StringBuilder sb = new StringBuilder("" + extremalValue);
+        sb.append(getString(R.string.extremalValueDesc_Units));
+        sb.append(getString(R.string.extremalValueDesc_onDate));
+        sb.append(extremalDate);
+        sb.append(getString(R.string.extremalValueDesc_atTime));
+        sb.append(extremalTime);
+        sb.append("\n");
+        if (extremalValue >= 140) {
+            sb.append(getString(R.string.extremalValueDesc_ExtraHigh));
+        } else if (extremalValue >= 100) {
+            sb.append(getString(R.string.extremalValueDesc_VeryHigh));
+        } else if (extremalValue >= 80) {
+            sb.append(getString(R.string.extremalValueDesc_High));
+        } else if (extremalValue >= -50) {
+            sb.append(getString(R.string.extremalValueDesc_Normal));
+        } else if (extremalValue >= -90) {
+            sb.append(getString(R.string.extremalValueDesc_Low));
+        } else if (extremalValue < -90) {
+            sb.append(getString(R.string.extremalValueDesc_ExtraLow));
+        } else
+            sb.append(getString(R.string.extremalValueDesc_Unknown));
+        return sb.toString();
+    }
+
+    protected int getTideRecapBackground(int extremalValue) {
+        if (extremalValue >= 140) {
+            return R.drawable.gradientextrahigh;
+        } else if (extremalValue >= 100) {
+            return R.drawable.gradientveryhigh;
+        } else if (extremalValue >= 80) {
+            return R.drawable.gradienthigh;
+        } else if (extremalValue >= -50) {
+            return R.drawable.gradientnormal;
+        } else if (extremalValue >= -90) {
+            return R.drawable.gradientlow;
+        } else if (extremalValue < -90) {
+            return R.drawable.gradientextralow;
+        } else
+            return R.drawable.gradientnormal;
+    }
+
+    protected int getTideRecapIcon(int extremalValue) {
+        if (extremalValue >= 140) {
+            return R.drawable.extremalextrahigh;
+        } else if (extremalValue >= 100) {
+            return R.drawable.extremalveryhigh;
+        } else if (extremalValue >= 80) {
+            return R.drawable.extremalhigh;
+        } else if (extremalValue >= -50) {
+            return R.drawable.extremalnormal;
+        } else if (extremalValue >= -90) {
+            return R.drawable.extremallow;
+        } else if (extremalValue < -90) {
+            return R.drawable.extremalextralow;
+        } else
+            return R.drawable.extremalunknown;
     }
 }
 
