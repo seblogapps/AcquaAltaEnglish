@@ -212,7 +212,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void execute() {
-            //super.execute();
             ProcessData processData = new ProcessData();
             processData.execute();
         }
@@ -222,9 +221,6 @@ public class MainActivity extends AppCompatActivity {
             protected void onPostExecute(String webData) {
                 super.onPostExecute(webData);
                 mTideList = getTides();
-                // Read from the tide forecast table forecast Date and Time
-                String forecastUpdateDateTime = Utils.formatJSONDateTime(getForecastDateTime());
-                Log.d(TAG, "onPostExecute: forecastDate " + forecastUpdateDateTime);
                 // Read from the tide forecast table the maximum value of the extremal tide level
                 int extremalMaxValue = getExtremalMaxValue();
                 Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
