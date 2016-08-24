@@ -40,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView tideRecapDescription;
     private ImageView tideRecapIconLeft;
     private ImageView tideRecapIconRight;
-    private RelativeLayout tideTableRecapLayout;
+    private RelativeLayout tideTitleHeaderLayout;
     private RelativeLayout tideDescriptionLayout;
+    private RelativeLayout tideTableHeaderLayout;
 
     private TextView tideForecastDate;
 
@@ -75,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
         tideForecastDate = (TextView) findViewById(R.id.tideForecastDate);
         tideRecapIconLeft = (ImageView) findViewById(R.id.tideRecapIconLeft);
         tideRecapIconRight = (ImageView) findViewById(R.id.tideRecapIconRight);
-        tideTableRecapLayout = (RelativeLayout) findViewById(R.id.tideTableRecapHeader);
+        tideTitleHeaderLayout = (RelativeLayout) findViewById(R.id.tideTitleHeader);
         tideDescriptionLayout = (RelativeLayout) findViewById(R.id.tideDescriptionLayout);
+        tideTableHeaderLayout = (RelativeLayout) findViewById(R.id.tideTableHeaders);
 
         // Set up the RecyclerView object
         mRecyclerView = (RecyclerView) findViewById(R.id.tideRecyclerview);
@@ -157,6 +159,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_info) {
+            // FireBase Analytics SELECT_CONTENT logging
+            Bundle bundle = new Bundle();
+            String firebase_id = "info";
+            String firebase_name = "Selected Info Dialog";
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, firebase_id);
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, firebase_name);
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Info");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             InfoClassDialogFragment mInfoClassDialogFragment = new InfoClassDialogFragment();
             mInfoClassDialogFragment.show(getSupportFragmentManager(), "Dialog");
         }
@@ -177,8 +187,20 @@ public class MainActivity extends AppCompatActivity {
             if (mTideRecyclerViewAdapter != null) {
                 mTideRecyclerViewAdapter.clear();
             }
-            tideTableRecapLayout.setVisibility(View.GONE);
+            showTideTable(false);
             processTideData.execute();
+        }
+    }
+
+    private void showTideTable(boolean show) {
+        if (!show) {
+            tideTitleHeaderLayout.setVisibility(View.GONE);
+            tideTableHeaderLayout.setVisibility(View.GONE);
+            tideDescriptionLayout.setVisibility(View.GONE);
+        } else {
+            tideTitleHeaderLayout.setVisibility(View.VISIBLE);
+            tideTableHeaderLayout.setVisibility(View.VISIBLE);
+            tideDescriptionLayout.setVisibility(View.VISIBLE);
         }
     }
 
@@ -226,8 +248,8 @@ public class MainActivity extends AppCompatActivity {
                         .append(getString(R.string.tideForecast_lastUpdateText_at))
                         .append(Utils.formatJSONTime(tideForecastDateTime))
                         .toString());
-                // Set the full table (including recap of the tide levels visible)
-                tideTableRecapLayout.setVisibility(View.VISIBLE);
+                // Set the full table (including recap of the tide levels) visible
+                showTideTable(true);
                 // Load tide table data and set to the adapter
                 mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
                 mRecyclerView.setAdapter(mTideRecyclerViewAdapter);

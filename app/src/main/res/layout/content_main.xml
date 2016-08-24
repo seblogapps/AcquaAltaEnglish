@@ -21,7 +21,7 @@
     </com.google.android.gms.ads.AdView>
 
     <RelativeLayout
-        android:id="@+id/tideTableRecapHeader"
+        android:id="@+id/tideTitleHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/adView"
@@ -36,8 +36,7 @@
             android:text="@string/tideTableRecapHeader_Title"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textStyle="normal|bold"
-            />
+            android:textStyle="normal|bold"/>
 
         <TextView
             android:id="@+id/tideTableHeaderSubTitle"
@@ -55,7 +54,7 @@
         android:id="@+id/tideDescriptionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tideTableRecapHeader"
+        android:layout_below="@id/tideTitleHeader"
         android:layout_centerInParent="true"
         android:orientation="horizontal"
         android:paddingBottom="4dp"
@@ -95,34 +94,32 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             tools:src="@drawable/extremalhigh"/>
-
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tideTableTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tideDescriptionLayout"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:text="@string/tideTableHeader_Title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        />
 
     <RelativeLayout
         android:id="@+id/tideTableHeaders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tideTableTitle"
-        android:layout_centerInParent="true">
+        android:layout_below="@id/tideDescriptionLayout"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        tools:visibility="visible">
 
+        <TextView
+            android:id="@+id/tideTableTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tideTableHeader_Title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"/>
         <TextView
             android:id="@+id/dateHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_below="@id/tideTableTitle"
             android:layout_gravity="start"
             android:paddingEnd="8dp"
             android:paddingLeft="8dp"
@@ -135,7 +132,7 @@
             android:id="@+id/typeHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_below="@id/tideTableTitle"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:text="@string/tideTableHeader_Extremal"
@@ -146,8 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_below="@id/tideTableTitle"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             android:layout_gravity="end"
             android:paddingEnd="8dp"
             android:paddingLeft="8dp"
@@ -155,6 +152,7 @@
             android:paddingStart="8dp"
             android:text="@string/tideTableHeader_Value"
             android:textStyle="bold"/>
+
     </RelativeLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout

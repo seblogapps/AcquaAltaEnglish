@@ -34,7 +34,7 @@
     <string name="extremalValueDesc_atTime">" at "</string>
     <string name="extremal_Min">minimum</string>
     <string name="extremal_Max">maximum</string>
-    <string name="tideTableSeparatorChar">-</string>
+    <string name="tideTableSeparatorChar" translatable="false">-</string>
     <!--WebCam names-->
     <array name="WebCam_Descriptions">
         <item>St Mark\'s\nClock Tower 1</item>
