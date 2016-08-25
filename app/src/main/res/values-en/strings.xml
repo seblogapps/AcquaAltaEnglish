@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Acqua Alta</string>
+    <string name="app_toolbarname">Venice High Tide</string>
+    <string name="title_activity_tide_graph">Tide Graph</string>
+    <string name="title_activity_web_cam">Select WebCam</string>
+    <string name="title_activity_fullscreen_web_cam">Selected WebCam</string>
+    <string name="action_tideGraph">Tide Graph</string>
+    <string name="action_webcams">WebCams</string>
+    <string name="action_info">About</string>
+    <string name="info_DialogMessage">Copyright @2016 SeblogApps\nAll rights reserved\nSpecial thanks to Venice council for the provided data\nThe information contained in this app is for general information purposes only. The information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
+    <!--AdMob-->
+    <string name="tideTableRecapHeader_Title">Tidal predictions</string>
+    <string name="tideTableRecapHeader_SubTitle">Maximum predicted tide level:</string>
+    <string name="tideTableHeader_Title">Prediction table</string>
+    <string name="tideTableHeader_Date">Date time</string>
+    <string name="tideTableHeader_Extremal">Extreme</string>
+    <string name="tideTableHeader_Value">Value (cm)</string>
+    <string name="snackbar_InternetConnectionNeeded">Internet connection needed</string>
+    <string name="tideForecast_lastUpdateText">"Last Update: "</string>
+    <string name="tideForecast_lastUpdateText_at">" at "</string>
+    <!--Extremal values descriptions-->
+    <string name="extremalValueDesc_ExtraHigh">Exceptional high tide (over  140cm)</string>
+    <string name="extremalValueDesc_VeryHigh">Very high tide (betw. 110cm and 139cm)</string>
+    <string name="extremalValueDesc_High">High tide (between  80cm and 109cm)</string>
+    <string name="extremalValueDesc_Normal">Normal tide (betw. -50cm and 79cm)</string>
+    <string name="extremalValueDesc_Low">Tide under the normal level (betw. -90cm and -51cm)</string>
+    <string name="extremalValueDesc_ExtraLow">Exceptional low tide (less than -90cm)</string>
+    <string name="extremalValueDesc_Unknown">Unexpected value</string>
+    <string name="extremalValueDesc_onDate">"on "</string>
+    <string name="extremalValueDesc_atTime">" at "</string>
+    <string name="extremal_Min">minimum</string>
+    <string name="extremal_Max">maximum</string>
+    <string name="snackbar_NoInternetDatafromCache">No connection available, data loaded from cache</string>
+    <!--WebCam names-->
+    <array name="WebCam_Descriptions">
+        <item>St Mark\'s\nClock Tower 1</item>
+        <item>St Mark\'s\nClock Tower 2</item>
+        <item>St Mark\'s\nClock Tower 3</item>
+        <item>Rialto \nPalazzo Cavalli 1</item>
+        <item>Rialto \nPalazzo Cavalli 2</item>
+        <item>Murano island\nLighthouse 1</item>
+        <item>Murano island\nLighthouse 2</item>
+        <item>Murano island\nLighthouse 3</item>
+        <item>St Mark\'s basin\nPunta Salute 1</item>
+        <item>St Mark\'s basin\nPunta Salute 2</item>
+    </array>
+    <!--WebCam URLs-->
+    <array name="WebCam_URLs">
+        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb2.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb3.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/rialtoweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/rialtoweb2.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/muranoweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/muranoweb2.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/muranoweb3.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/saluteweb1.jpg</item>
+        <item>http://93.62.201.235/maree/WEBCAM/saluteweb2.jpg</item>
+    </array>
+</resources>
