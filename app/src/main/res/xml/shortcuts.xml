@@ -1,0 +1,19 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="tideGraph"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_line_chart"
+        android:shortcutShortLabel="@string/tidegraph_shortcut_short_label1"
+        android:shortcutLongLabel="@string/tidegraph_shortcut_long_label1"
+        android:shortcutDisabledMessage="@string/tidegraph_shortcut_disabled_label1">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="appinventor.ai_seblog2k.Acqua_Alta"
+            android:targetClass="appinventor.ai_seblog2k.Acqua_Alta.TideGraphActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list is what the user sees when they
+             launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

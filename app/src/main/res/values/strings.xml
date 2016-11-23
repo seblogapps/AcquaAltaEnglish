@@ -62,4 +62,7 @@
         <item>http://93.62.201.235/maree/WEBCAM/saluteweb1.jpg</item>
         <item>http://93.62.201.235/maree/WEBCAM/saluteweb2.jpg</item>
         </array>
+    <string name="tidegraph_shortcut_short_label1">Tide Graph</string>
+    <string name="tidegraph_shortcut_long_label1">Show Tide Graph</string>
+    <string name="tidegraph_shortcut_disabled_label1">Sorry Tide Graph is not available</string>
 </resources>
