@@ -57,5 +57,5 @@
         <item>http://93.62.201.235/maree/WEBCAM/saluteweb1.jpg</item>
         <item>http://93.62.201.235/maree/WEBCAM/saluteweb2.jpg</item>
     </array>
-    <string name="snackbar_ErrorDownloadingData">Data download failed, please try again</string>
+    <string name="snackbar_ErrorDownloadingData">Download failed, please try again</string>
 </resources>
