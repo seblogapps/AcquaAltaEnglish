@@ -43,4 +43,5 @@
         <item>Bacino S.Marco \nPunta Salute 2</item>
     </array>
     <string name="snackbar_NoInternetDatafromCache">Connessione assente, dati presi dalla cache</string>
+    <string name="snackbar_ErrorDownloadingData">Errore nel download, riprova piú tardi</string>
 </resources>

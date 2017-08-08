@@ -238,42 +238,54 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String webData) {
                 super.onPostExecute(webData);
-                //Save fresh webData to Shared Preferences
-                SharedPreferences mSharedPreferences = getSharedPreferences(APPS_DATA, MODE_PRIVATE);
-                SharedPreferences.Editor editor = mSharedPreferences.edit();
-                editor.putString(TIDEJSONDATA_TAG, webData);
-                editor.apply();
-                // Load tide values into mTideList ArrayList
-                mTideList = getTides();
-                // Read from the tide forecast table the maximum value of the extremal tide level
-                int extremalMaxValue = getExtremalMaxValue();
-                Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
-                // From the max value of tide level, extract the string with the description of the tide level
-                // Read from the tide forecast the date and time for the next max tide event
-                String extremalMaxValueDateTime = getExtremalMaxValueDateTime();
-                Log.d(TAG, "onPostExecute: getExtremalMaxValueDateTime " + extremalMaxValueDateTime);
-                String extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue, extremalMaxValueDateTime);
-                tideRecapDescription.setText(extremalMaxValueDescription);
-                Log.d(TAG, "onPostExecute: extremalValueDescription " + extremalMaxValueDescription);
-                // Depending on the max extremal value, set the tide recap icon, both left and right
-                int tideRecapIconImageResource = getTideRecapIcon(extremalMaxValue);
-                tideRecapIconLeft.setImageResource(tideRecapIconImageResource);
-                tideRecapIconRight.setImageResource(tideRecapIconImageResource);
-                // Depending on the max extremal value, set the background for the description recap line
-                tideDescriptionLayout.setBackgroundResource((getTideRecapBackground(extremalMaxValue)));
-                // Read from the tide forecast the last update date of the forecast and load it to textView
-                String tideForecastDateTime = getForecastDateTime();
-                tideForecastDate.setText(new StringBuilder().append(getString(R.string.tideForecast_lastUpdateText))
-                        .append(Utils.formatJSONDate(tideForecastDateTime))
-                        .append(getString(R.string.tideForecast_lastUpdateText_at))
-                        .append(Utils.formatJSONTime(tideForecastDateTime))
-                        .toString());
-                // Set the full table (including recap of the tide levels) visible
-                showTideTable(true);
-                // Load tide table data and set to the adapter
-                mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
-                mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
-                swipeContainer.setRefreshing(false);
+                // Only if no errors on downloading data (it can happen if network is up but data is not downloaded)
+                if (webData != null) {
+                    //Save fresh webData to Shared Preferences
+                    SharedPreferences mSharedPreferences = getSharedPreferences(APPS_DATA, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = mSharedPreferences.edit();
+                    editor.putString(TIDEJSONDATA_TAG, webData);
+                    editor.apply();
+                    // Load tide values into mTideList ArrayList
+                    mTideList = getTides();
+                    // Read from the tide forecast table the maximum value of the extremal tide level
+                    int extremalMaxValue = getExtremalMaxValue();
+                    Log.d(TAG, "onPostExecute: maxTideValue " + extremalMaxValue);
+                    // From the max value of tide level, extract the string with the description of the tide level
+                    // Read from the tide forecast the date and time for the next max tide event
+                    String extremalMaxValueDateTime = getExtremalMaxValueDateTime();
+                    Log.d(TAG, "onPostExecute: getExtremalMaxValueDateTime " + extremalMaxValueDateTime);
+                    String extremalMaxValueDescription = getExtremalMaxValueDescription(extremalMaxValue, extremalMaxValueDateTime);
+                    tideRecapDescription.setText(extremalMaxValueDescription);
+                    Log.d(TAG, "onPostExecute: extremalValueDescription " + extremalMaxValueDescription);
+                    // Depending on the max extremal value, set the tide recap icon, both left and right
+                    int tideRecapIconImageResource = getTideRecapIcon(extremalMaxValue);
+                    tideRecapIconLeft.setImageResource(tideRecapIconImageResource);
+                    tideRecapIconRight.setImageResource(tideRecapIconImageResource);
+                    // Depending on the max extremal value, set the background for the description recap line
+                    tideDescriptionLayout.setBackgroundResource((getTideRecapBackground(extremalMaxValue)));
+                    // Read from the tide forecast the last update date of the forecast and load it to textView
+                    String tideForecastDateTime = getForecastDateTime();
+                    tideForecastDate.setText(new StringBuilder().append(getString(R.string.tideForecast_lastUpdateText))
+                            .append(Utils.formatJSONDate(tideForecastDateTime))
+                            .append(getString(R.string.tideForecast_lastUpdateText_at))
+                            .append(Utils.formatJSONTime(tideForecastDateTime))
+                            .toString());
+                    // Set the full table (including recap of the tide levels) visible
+                    showTideTable(true);
+                    // Load tide table data and set to the adapter
+                    mTideRecyclerViewAdapter = new TideRecyclerViewAdapter(MainActivity.this, mTideList);
+                    mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
+                    swipeContainer.setRefreshing(false);
+                } else {
+                    final Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), R.string.snackbar_ErrorDownloadingData, Snackbar.LENGTH_INDEFINITE);
+                    snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            snackbar.dismiss();
+                        }
+                    });
+                    snackbar.show();
+                }
             }
         }
     }
