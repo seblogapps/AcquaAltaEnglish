@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
                     mRecyclerView.setAdapter(mTideRecyclerViewAdapter);
                     swipeContainer.setRefreshing(false);
                 } else {
-                    final Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), R.string.snackbar_ErrorDownloadingData, Snackbar.LENGTH_INDEFINITE);
+                    final Snackbar snackbar = Snackbar.make(findViewById(R.id.content_main), R.string.snackbar_ErrorDownloadingData, Snackbar.LENGTH_LONG);
                     snackbar.setAction("OK", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
