@@ -44,4 +44,7 @@
     </array>
     <string name="snackbar_NoInternetDatafromCache">Connessione assente, dati presi dalla cache</string>
     <string name="snackbar_ErrorDownloadingData">Errore nel download, riprova piú tardi</string>
+    <string name="tidegraph_shortcut_short_label1">Grafico Marea</string>
+    <string name="tidegraph_shortcut_long_label1">Mostra Grafico Marea</string>
+    <string name="tidegraph_shortcut_disabled_label1">Grafico Marea non disponibile</string>
 </resources>
