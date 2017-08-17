@@ -20,6 +20,8 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name="appinventor.ai_seblog2k.Acqua_Alta.TideGraphActivity"
@@ -32,8 +34,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="appinventor.ai_seblog2k.Acqua_Alta.MainActivity"/>
-            <meta-data android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name="appinventor.ai_seblog2k.Acqua_Alta.WebCamActivity"
