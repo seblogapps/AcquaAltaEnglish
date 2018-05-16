@@ -65,5 +65,8 @@
     <string name="tidegraph_shortcut_short_label1">Tide Graph</string>
     <string name="tidegraph_shortcut_long_label1">Show Tide Graph</string>
     <string name="tidegraph_shortcut_disabled_label1">Sorry Tide Graph is not available</string>
+    <string name="webcam_shortcut_short_label1">WebCams</string>
+    <string name="webcam_shortcut_long_label1">Show Webcam</string>
+    <string name="webcam_shortcut_disabled_label1">Sorry WebCams are not available</string>
     <string name="snackbar_ErrorDownloadingData">Download failed, please try again</string>
 </resources>

@@ -115,7 +115,7 @@ public class FullscreenWebCam extends AppCompatActivity {
 
         ImageView webCamImageView = (ImageView) findViewById(R.id.webcamImage);
         // Use Picasso library to load the image
-        Picasso.with(this)
+        Picasso.get()
                 .load(webCamUrl)
                 //.networkPolicy(NetworkPolicy.NO_CACHE)
                 .memoryPolicy(MemoryPolicy.NO_CACHE)

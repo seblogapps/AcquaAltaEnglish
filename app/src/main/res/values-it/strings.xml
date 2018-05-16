@@ -47,4 +47,7 @@
     <string name="tidegraph_shortcut_short_label1">Grafico Marea</string>
     <string name="tidegraph_shortcut_long_label1">Mostra Grafico Marea</string>
     <string name="tidegraph_shortcut_disabled_label1">Grafico Marea non disponibile</string>
+    <string name="webcam_shortcut_short_label1">WebCam</string>
+    <string name="webcam_shortcut_long_label1">Visualizza Webcam</string>
+    <string name="webcam_shortcut_disabled_label1">WebCam non disponibili</string>
 </resources>

@@ -52,7 +52,7 @@ public class WebCamActivity extends AppCompatActivity {
                     snackbar.setAction("Action", null);
                     snackbar.show();
                 } else {
-                    PicassoTools.clearCache(Picasso.with(WebCamActivity.this));
+                    PicassoTools.clearCache(Picasso.get());
                     mWebCamRecyclerViewAdapter.clear();
                     updateWebCamRecyclerView();
                 }

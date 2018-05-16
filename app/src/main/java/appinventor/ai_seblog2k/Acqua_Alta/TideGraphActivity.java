@@ -18,6 +18,7 @@ import uk.co.senab.photoview.PhotoView;
 public class TideGraphActivity extends AppCompatActivity {
     private static final String tideGraphURL = "http://comune.venezia.it/flex/AppData/Local/bollettino_grafico.jpg";
     private PhotoView tideImageView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class TideGraphActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        AdView mAdView = (AdView) findViewById(R.id.adViewTideGraph);
+        //AdView mAdView = (AdView) findViewById(R.id.adViewTideGraph);
+        mAdView = findViewById(R.id.adViewTideGraph);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice("11EE834DE9176B621F70C33C75B7E126")
                 .build();
@@ -38,7 +40,7 @@ public class TideGraphActivity extends AppCompatActivity {
         // Create a PhotoView object to store the tideGraph (PhotoView library used to implement pinch-to-zoom)
         tideImageView = (PhotoView) findViewById(R.id.tideGraph);
         // Use Picasso library to load the image
-        Picasso.with(this)
+        Picasso.get()
                 .load(tideGraphURL)
                 .placeholder(R.drawable.tidegraphplaceholder)
                 .error(R.drawable.tidegrapherrorplaceholder)
@@ -53,8 +55,8 @@ public class TideGraphActivity extends AppCompatActivity {
                     snackbar.setAction("Action", null);
                     snackbar.show();
                 } else {
-                    Picasso.with(TideGraphActivity.this).invalidate(tideGraphURL);
-                    Picasso.with(TideGraphActivity.this)
+                    Picasso.get().invalidate(tideGraphURL);
+                    Picasso.get()
                             .load(tideGraphURL)
                             .memoryPolicy(MemoryPolicy.NO_CACHE)
                             .networkPolicy(NetworkPolicy.NO_CACHE)
