@@ -11,7 +11,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <!-- Required for AdMob -->
+        <meta-data
+         android:name="com.google.android.gms.ads.APPLICATION_ID"
+         android:value="ca-app-pub-7349086147955397~7734184417"/>
+
         <activity
             android:name="appinventor.ai_seblog2k.Acqua_Alta.MainActivity"
             android:label="@string/app_name"

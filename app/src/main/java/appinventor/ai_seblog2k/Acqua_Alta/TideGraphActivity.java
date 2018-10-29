@@ -16,7 +16,8 @@ import com.squareup.picasso.Picasso;
 import uk.co.senab.photoview.PhotoView;
 
 public class TideGraphActivity extends AppCompatActivity {
-    private static final String tideGraphURL = "http://comune.venezia.it/flex/AppData/Local/bollettino_grafico.jpg";
+    //private static final String tideGraphURL = "http://comune.venezia.it/flex/AppData/Local/bollettino_grafico.jpg";
+    private static final String tideGraphURL = "http://www.comune.venezia.it/sites/default/files/publicCPSM/png/bollettino_grafico.jpg"; //Updated on 30/10/2018
     private PhotoView tideImageView;
     private AdView mAdView;
 
