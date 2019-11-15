@@ -7,7 +7,7 @@
     <string name="action_tideGraph">Tide Graph</string>
     <string name="action_webcams">WebCams</string>
     <string name="action_info">About</string>
-    <string name="info_DialogMessage">Copyright @2016 SeblogApps\nAll rights reserved\nSpecial thanks to Venice council for the provided data\nThe information contained in this app is for general information purposes only. The information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
+    <string name="info_DialogMessage">Copyright @2019 SeblogApps\nAll rights reserved\nSpecial thanks to Venice council for the provided data\nThe information contained in this app is for general information purposes only. The information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
     <!--AdMob-->
     <string name="tideTableRecapHeader_Title">Tidal predictions</string>
     <string name="tideTableRecapHeader_SubTitle">Maximum predicted tide level:</string>
@@ -46,16 +46,16 @@
     </array>
     <!--WebCam URLs-->
     <array name="WebCam_URLs">
-        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb1.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb2.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/smarcoweb3.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/rialtoweb1.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/rialtoweb2.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/muranoweb1.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/muranoweb2.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/muranoweb3.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/saluteweb1.jpg</item>
-        <item>http://93.62.201.235/maree/WEBCAM/saluteweb2.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb1.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb2.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb3.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/rialtoweb1.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/rialtoweb2.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb1.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb2.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb3.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/saluteweb1.jpg</item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/saluteweb2.jpg</item>
     </array>
     <string name="snackbar_ErrorDownloadingData">Download failed, please try again</string>
     <string name="tidegraph_shortcut_long_label1">Show Tide Graph</string>
