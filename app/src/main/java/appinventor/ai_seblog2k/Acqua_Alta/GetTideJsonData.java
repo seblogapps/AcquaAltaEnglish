@@ -18,7 +18,8 @@ import java.util.List;
 public class GetTideJsonData extends GetRawData {
 
     private static final String TAG = GetTideJsonData.class.getSimpleName();
-    private static final String VENICE_TIDE_DATA_URI = "http://dati.venezia.it/sites/default/files/dataset/opendata/previsione.json";
+//    private static final String VENICE_TIDE_DATA_URI = "http://dati.venezia.it/sites/default/files/dataset/opendata/previsione.json";
+    private static final String VENICE_TIDE_DATA_URI = "https://dati.venezia.it/sites/default/files/dataset/opendata/previsione.json"; //Updated to https on 25/08/2020
     private List<Tide> mTides;
     private Uri mDestinationUri;
 
