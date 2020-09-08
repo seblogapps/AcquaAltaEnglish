@@ -14,11 +14,11 @@
     tools:context="appinventor.ai_seblog2k.Acqua_Alta.WebCamActivity"
     tools:showIn="@layout/activity_webcam">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/webcamRecyclerview">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

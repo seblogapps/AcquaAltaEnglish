@@ -37,7 +37,8 @@
             android:text="@string/tideTableRecapHeader_Title"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textStyle="normal|bold"/>
+            android:textStyle="normal|bold"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/tideTableHeaderSubTitle"
@@ -48,7 +49,8 @@
             android:text="@string/tideTableRecapHeader_SubTitle"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold|italic"/>
+            android:textStyle="bold|italic"
+            android:layout_gravity="center_horizontal" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -156,24 +158,23 @@
 
     </RelativeLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tideTableHeaders"
         android:layout_centerInParent="true">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tideRecyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingEnd="8dp"
+            android:layout_height="match_parent"
+            android:paddingStart="8dp"
             android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingStart="8dp">
-        </android.support.v7.widget.RecyclerView>
+            android:paddingEnd="8dp"
+            android:paddingRight="8dp" />
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
         android:id="@+id/tideForecastDate"

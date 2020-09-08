@@ -28,7 +28,9 @@
         android:textColor="#29b6f6"
         android:textSize="32sp"
         android:textStyle="bold"
-        tools:text="WebCam Description"/>
+        tools:text="WebCam Description"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal" />
 
 
     <!-- This FrameLayout insets its children based on system windows using

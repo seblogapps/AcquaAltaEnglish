@@ -31,6 +31,7 @@
         android:layout_alignParentTop="true"
         android:textAlignment="center"
         android:visibility="visible"
-        tools:text="60"/>
+        tools:text="60"
+        android:gravity="center_horizontal" />
 
 </RelativeLayout>
