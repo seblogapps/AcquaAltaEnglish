@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.core.content.ContextCompat;
@@ -66,10 +68,20 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // AdMob banner
-        MobileAds.initialize(this, getResources().getString(R.string.banner_ad_unit_id));
+        List<String> testDevices = new ArrayList<>();
+        testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
+        testDevices.add("11EE834DE9176B621F70C33C75B7E126");
+
+        RequestConfiguration requestConfiguration
+                = new RequestConfiguration.Builder()
+                .setTestDeviceIds(testDevices)
+                .build();
+        MobileAds.setRequestConfiguration(requestConfiguration);
+        MobileAds.initialize(this);
+//        MobileAds.initialize(this, getResources().getString(R.string.banner_ad_unit_id));
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("11EE834DE9176B621F70C33C75B7E126")
+                //.addTestDevice("11EE834DE9176B621F70C33C75B7E126")
                 .build();
         mAdView.loadAd(adRequest);
 

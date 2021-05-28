@@ -35,7 +35,7 @@ public class TideGraphActivity extends AppCompatActivity {
         //AdView mAdView = (AdView) findViewById(R.id.adViewTideGraph);
         mAdView = findViewById(R.id.adViewTideGraph);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("11EE834DE9176B621F70C33C75B7E126")
+                //.addTestDevice("11EE834DE9176B621F70C33C75B7E126")
                 .build();
         mAdView.loadAd(adRequest);
 
