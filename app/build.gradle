@@ -12,7 +12,7 @@ android {
         targetSdkVersion 29
         multiDexEnabled true
         versionCode 29
-        versionName "5.11"
+        versionName "5.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
