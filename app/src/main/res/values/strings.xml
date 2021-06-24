@@ -1,7 +1,44 @@
 <resources>
+    <!--WebCam names-->
+    <array name="WebCam_Descriptions">
+        <item>St Mark\'s\nClock Tower 1</item>
+        <item>St Mark\'s\nClock Tower 2</item>
+        <item>St Mark\'s\nClock Tower 3</item>
+        <item>Rialto \nPalazzo Cavalli 1</item>
+        <item>Rialto \nPalazzo Cavalli 2</item>
+        <item>Murano island\nLighthouse 1</item>
+        <item>Murano island\nLighthouse 2</item>
+        <item>Murano island\nLighthouse 3</item>
+        <item>St Mark\'s basin\nPunta Salute 1</item>
+        <item>St Mark\'s basin\nPunta Salute 2</item>
+    </array>
+    <!--WebCam URLs-->
+    <array name="WebCam_URLs">
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb1.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb2.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb3.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/rialtoweb1.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/rialtoweb2.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb1.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb2.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb3.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/saluteweb1.jpg
+        </item>
+        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/saluteweb2.jpg
+        </item>
+    </array>
     <string name="app_name">Acqua Alta</string>
     <string name="app_toolbarname">Venice High Tide</string>
     <string name="title_activity_tide_graph">Tide Graph</string>
+    <string name="title_activity_tide_month_graph">Tide Monthly Graph</string>
     <string name="title_activity_web_cam">Select WebCam</string>
     <string name="title_activity_fullscreen_web_cam">Selected WebCam</string>
     <string name="action_tideGraph">Tide Graph</string>
@@ -11,6 +48,7 @@
     <!--AdMob-->
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7349086147955397/1988355210</string>
     <string name="banner_ad_unit_id_tidegraph" translatable="false">ca-app-pub-7349086147955397/3325487617</string>
+    <string name="banner_ad_unit_id_tidemonthgraph" translatable="false">ca-app-pub-7349086147955397/7162892034</string>
     <string name="tideTableRecapHeader_Title">Tidal predictions</string>
     <string name="tideTableRecapHeader_SubTitle">Maximum predicted tide level:</string>
     <string name="tideTableHeader_Title">Prediction table</string>
@@ -36,32 +74,6 @@
     <string name="extremal_Max">maximum</string>
     <string name="tideTableSeparatorChar" translatable="false">-</string>
     <string name="snackbar_NoInternetDatafromCache">No connection available, data loaded from cache</string>
-    <!--WebCam names-->
-    <array name="WebCam_Descriptions">
-        <item>St Mark\'s\nClock Tower 1</item>
-        <item>St Mark\'s\nClock Tower 2</item>
-        <item>St Mark\'s\nClock Tower 3</item>
-        <item>Rialto \nPalazzo Cavalli 1</item>
-        <item>Rialto \nPalazzo Cavalli 2</item>
-        <item>Murano island\nLighthouse 1</item>
-        <item>Murano island\nLighthouse 2</item>
-        <item>Murano island\nLighthouse 3</item>
-        <item>St Mark\'s basin\nPunta Salute 1</item>
-        <item>St Mark\'s basin\nPunta Salute 2</item>
-    </array>
-    <!--WebCam URLs-->
-    <array name="WebCam_URLs">
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb1.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb2.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/smarcoweb3.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/rialtoweb1.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/rialtoweb2.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb1.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb2.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/muranoweb3.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/saluteweb1.jpg</item>
-        <item>https://www.comune.venezia.it/sites/default/files/publicCPSM2/webcam/saluteweb2.jpg</item>
-        </array>
     <string name="tidegraph_shortcut_short_label1">Tide Graph</string>
     <string name="tidegraph_shortcut_long_label1">Show Tide Graph</string>
     <string name="tidegraph_shortcut_disabled_label1">Sorry Tide Graph is not available</string>
@@ -69,4 +81,5 @@
     <string name="webcam_shortcut_long_label1">Show Webcam</string>
     <string name="webcam_shortcut_disabled_label1">Sorry WebCams are not available</string>
     <string name="snackbar_ErrorDownloadingData">Download failed, please try again</string>
+    <string name="action_tideMonthGraph">Tide Monthly Graph</string>
 </resources>
