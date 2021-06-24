@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     private static final String TAG = MainActivity.class.getSimpleName();
     protected static final String APPS_DATA = "HighTideAppData";
     protected static final String TIDEJSONDATA_TAG = "SAVED_DATA";
@@ -136,6 +135,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -160,6 +167,19 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "TideGraph");
             mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             Intent intent = new Intent(this, TideGraphActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.action_tideMonthGraph) {
+            // FireBase Analytics SELECT_CONTENT logging
+            Bundle bundle = new Bundle();
+            String firebase_id = "tideMonthGraph";
+            String firebase_name = "Selected Tide Month Graph Activity";
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, firebase_id);
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, firebase_name);
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "TideMonthGraph");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+            Intent intent = new Intent(this, TideMonthGraphActivity.class);
             startActivity(intent);
         }
 
