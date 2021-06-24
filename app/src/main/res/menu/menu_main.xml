@@ -15,6 +15,12 @@
         android:title="@string/action_webcams"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_picture"/>
+    <item
+        android:id="@+id/action_tideMonthGraph"
+        android:orderInCategory="30"
+        android:title="@string/action_tideMonthGraph"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_month_chart"/>
 
     <item
         android:id="@+id/action_info"
