@@ -51,4 +51,6 @@
     <string name="webcam_shortcut_short_label1">WebCam</string>
     <string name="webcam_shortcut_long_label1">Visualizza Webcam</string>
     <string name="webcam_shortcut_disabled_label1">WebCam non disponibili</string>
+    <string name="action_tideMonthGraph">Grafico Marea Astronomica</string>
+    <string name="title_activity_tide_month_graph">Grafico Marea Astronomica</string>
 </resources>
