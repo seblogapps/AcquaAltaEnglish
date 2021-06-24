@@ -1,6 +1,10 @@
 package appinventor.ai_seblog2k.Acqua_Alta;
 
 import android.os.Bundle;
+
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +37,11 @@ public class TideGraphActivity extends AppCompatActivity {
         }
 
         //AdView mAdView = (AdView) findViewById(R.id.adViewTideGraph);
+        // Initialize the Mobile Ads SDK.
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
         mAdView = findViewById(R.id.adViewTideGraph);
         AdRequest adRequest = new AdRequest.Builder()
                 //.addTestDevice("11EE834DE9176B621F70C33C75B7E126")
