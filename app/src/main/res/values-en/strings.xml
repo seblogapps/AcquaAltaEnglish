@@ -64,4 +64,6 @@
     <string name="webcam_shortcut_short_label1">WebCams</string>
     <string name="webcam_shortcut_long_label1">Show Webcams</string>
     <string name="webcam_shortcut_disabled_label1">Sorry WebCams are not available</string>
+    <string name="action_tideMonthGraph">Tide Monthly Graph</string>
+    <string name="title_activity_tide_month_graph">Tide Monthly Graph</string>
 </resources>
