@@ -44,7 +44,7 @@
     <string name="action_tideGraph">Tide Graph</string>
     <string name="action_webcams">WebCams</string>
     <string name="action_info">About</string>
-    <string name="info_DialogMessage">Copyright @2021 SeblogApps \\nAll rights reserved Special thanks to Venice council for the provided data \\nThe information contained in this app is for general information purposes only. \\nThe information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
+    <string name="info_DialogMessage">Copyright @2021 SeblogApps\nAll rights reserved\nSpecial thanks to Venice council for the provided data\nThe information contained in this app is for general information purposes only.\nThe information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
     <!--AdMob-->
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7349086147955397/1988355210</string>
     <string name="banner_ad_unit_id_tidegraph" translatable="false">ca-app-pub-7349086147955397/3325487617</string>
@@ -84,4 +84,5 @@
     <string name="action_tideMonthGraph">Tide Monthly Graph</string>
     <string name="string_fabdescription">Reload Button</string>
     <string name="tideMonthGraphAttibution">Source : https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
+    <string name="ads">Ads</string>
 </resources>
