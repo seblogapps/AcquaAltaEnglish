@@ -53,4 +53,6 @@
     <string name="webcam_shortcut_disabled_label1">WebCam non disponibili</string>
     <string name="action_tideMonthGraph">Grafico Marea Astronomica</string>
     <string name="title_activity_tide_month_graph">Grafico Marea Astronomica</string>
+    <string name="string_fabdescription">Pulsante Ricarica</string>
+    <string name="tideMonthGraphAttibution">Dati originali : https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
 </resources>
