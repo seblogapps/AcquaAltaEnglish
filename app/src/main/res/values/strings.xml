@@ -82,7 +82,10 @@
     <string name="webcam_shortcut_disabled_label1">Sorry WebCams are not available</string>
     <string name="snackbar_ErrorDownloadingData">Download failed, please try again</string>
     <string name="action_tideMonthGraph">Tide Monthly Graph</string>
-    <string name="string_fabdescription">Reload Button</string>
+    <string name="string_fabdescription">Reload</string>
     <string name="tideMonthGraphAttibution">Source : https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
     <string name="ads">Ads</string>
+    <string name="monthlyTideGraph_shortcut_short_label1">Monthly Graph</string>
+    <string name="monthlyTideGraph_shortcut_long_label1">Monthly Tide Graph</string>
+    <string name="monthlyTideGraph_shortcut_disabled_label1">Monthly Tide Graph Disabled</string>
 </resources>

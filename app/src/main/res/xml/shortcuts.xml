@@ -34,4 +34,20 @@
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <!-- Specify more shortcuts here. -->
+    <shortcut
+        android:shortcutId="monthlyTideGraph"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_month_chart"
+        android:shortcutShortLabel="@string/monthlyTideGraph_shortcut_short_label1"
+        android:shortcutLongLabel="@string/monthlyTideGraph_shortcut_long_label1"
+        android:shortcutDisabledMessage="@string/monthlyTideGraph_shortcut_disabled_label1">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="appinventor.ai_seblog2k.Acqua_Alta"
+            android:targetClass="appinventor.ai_seblog2k.Acqua_Alta.TideMonthGraphActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list is what the user sees when they
+             launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
 </shortcuts>

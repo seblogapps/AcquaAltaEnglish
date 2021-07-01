@@ -51,8 +51,11 @@
     <string name="webcam_shortcut_long_label1">Visualizza Webcam</string>
     <string name="webcam_shortcut_disabled_label1">WebCam non disponibili</string>
     <string name="action_tideMonthGraph">Grafico Marea Astronomica</string>
+    <string name="monthlyTideGraph_shortcut_short_label1">Grafico Marea Astronomica</string>
+    <string name="monthlyTideGraph_shortcut_long_label1">Mostra Grafico Marea Astronomica</string>
+    <string name="monthlyTideGraph_shortcut_disabled_label1">Grafico Marea Astronomica Disabilitato</string>
     <string name="title_activity_tide_month_graph">Grafico Marea Astronomica</string>
-    <string name="string_fabdescription">Pulsante Ricarica</string>
+    <string name="string_fabdescription">Ricarica</string>
     <string name="tideMonthGraphAttibution">Fonte : https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
     <string name="ads">Pubblicitá</string>
 </resources>
