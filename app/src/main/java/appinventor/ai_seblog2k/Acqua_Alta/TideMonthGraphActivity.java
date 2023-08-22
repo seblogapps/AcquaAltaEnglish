@@ -44,6 +44,8 @@ public class TideMonthGraphActivity extends AppCompatActivity {
         // Use Picasso library to load the image
         Picasso.get()
                 .load(tideMonthGraphURL)
+                .resize(2048, 1600)
+                .onlyScaleDown()
                 .placeholder(R.drawable.tidegraphplaceholder)
                 .error(R.drawable.tidegrapherrorplaceholder)
                 .into(tideImageView);
@@ -60,6 +62,8 @@ public class TideMonthGraphActivity extends AppCompatActivity {
                     Picasso.get().invalidate(tideMonthGraphURL);
                     Picasso.get()
                             .load(tideMonthGraphURL)
+                            .resize(2048, 1600)
+                            .onlyScaleDown()
                             .memoryPolicy(MemoryPolicy.NO_CACHE)
                             .networkPolicy(NetworkPolicy.NO_CACHE)
                             .placeholder(R.drawable.tidegraphplaceholder)
