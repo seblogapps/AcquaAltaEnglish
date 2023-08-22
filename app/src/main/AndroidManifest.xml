@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +33,7 @@
         <activity
             android:name=".TideGraphActivity"
             android:label="@string/title_activity_tide_graph"
+            android:exported="true"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -44,6 +47,7 @@
         <activity
             android:name=".TideMonthGraphActivity"
             android:label="@string/title_activity_tide_month_graph"
+            android:exported="true"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -57,6 +61,7 @@
         <activity
             android:name=".WebCamActivity"
             android:label="@string/title_activity_web_cam"
+            android:exported="true"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -67,6 +72,7 @@
             android:name=".FullscreenWebCam"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen_web_cam"
+            android:exported="true"
             android:parentActivityName=".WebCamActivity"
             android:theme="@style/FullscreenTheme">
             <meta-data
