@@ -12,7 +12,7 @@ android {
         targetSdkVersion 33
         multiDexEnabled true
         versionCode 45
-        versionName "5.351"
+        versionName "5.352"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
