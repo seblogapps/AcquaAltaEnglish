@@ -15,7 +15,7 @@
     <string name="extremalValueDesc_onDate">"il "</string>
     <string name="extremal_Max">massimo</string>
     <string name="extremal_Min">minimo</string>
-    <string name="info_DialogMessage">Copyright @2023 SeblogApps Tutti i diritti riservati. Si ringrazia il Comune di Venezia per i dati forniti  Non si accetta alcuna responsabilità sull\'esattezza dei dati forniti.</string>
+    <string name="info_DialogMessage">Copyright @2024 SeblogApps Tutti i diritti riservati. Si ringrazia il Comune di Venezia per i dati forniti  Non si accetta alcuna responsabilità sull\'esattezza dei dati forniti.</string>
     <string name="snackbar_InternetConnectionNeeded">Connessione internet assente</string>
     <string name="tideForecast_lastUpdateText">"Ultimo aggiornamento: "</string>
     <string name="tideForecast_lastUpdateText_at">" alle "</string>

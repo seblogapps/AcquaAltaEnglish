@@ -7,7 +7,7 @@
     <string name="action_tideGraph">Tide Graph</string>
     <string name="action_webcams">WebCams</string>
     <string name="action_info">About</string>
-    <string name="info_DialogMessage">Copyright @2023 SeblogApps All rights reserved Special thanks to Venice council for the provided data The information contained in this app is for general information purposes only. The information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
+    <string name="info_DialogMessage">Copyright @2024 SeblogApps All rights reserved Special thanks to Venice council for the provided data The information contained in this app is for general information purposes only. The information is provided by Venice Open Data and while they try to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the app or the information, products, services, or related graphics contained on the app for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</string>
     <!--AdMob-->
     <string name="tideTableRecapHeader_Title">Tidal predictions</string>
     <string name="tideTableRecapHeader_SubTitle">Maximum predicted tide level:</string>
