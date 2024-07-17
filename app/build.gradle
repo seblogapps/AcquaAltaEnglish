@@ -3,7 +3,8 @@ apply plugin: 'com.google.gms.google-services'  // Google Services plugin
 apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
-    compileSdkVersion 33
+//    compileSdkVersion 33
+    compileSdk 33
     //buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "appinventor.ai_seblog2k.Acqua_Alta"
