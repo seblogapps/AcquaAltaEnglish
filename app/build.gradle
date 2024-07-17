@@ -39,6 +39,7 @@ android {
     aaptOptions {
         noCompress 'db'
     }
+    namespace 'appinventor.ai_seblog2k.Acqua_Alta'
 }
 dependencies {
     // Import the Firebase BoM
