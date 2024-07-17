@@ -36,10 +36,10 @@ android {
         viewBinding true
     }
     // Should resolve play console warning : java.lang.RuntimeException: android.database.sqlite.SQLiteException: no such table: media_store_extension (code 1): , while compiling: SELECT id FROM media_store_extension WHERE POPULATED_COLUMNS != 134217726 OR DATE_MODIFIED = -1 OR FINGERPRINT IS NULL
-    aaptOptions {
+    namespace 'appinventor.ai_seblog2k.Acqua_Alta'
+    androidResources {
         noCompress 'db'
     }
-    namespace 'appinventor.ai_seblog2k.Acqua_Alta'
 }
 dependencies {
     // Import the Firebase BoM
