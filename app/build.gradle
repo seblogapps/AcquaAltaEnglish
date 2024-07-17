@@ -7,8 +7,8 @@ android {
     //buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "appinventor.ai_seblog2k.Acqua_Alta"
-        minSdkVersion 19
-//        minSdkVersion 21
+//        minSdkVersion 19
+        minSdkVersion 20
         targetSdkVersion 33
         multiDexEnabled true
         versionCode 45
