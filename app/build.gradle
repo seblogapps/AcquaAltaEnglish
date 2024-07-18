@@ -11,7 +11,8 @@ android {
 //        minSdkVersion 19
 //        minSdkVersion 20
         minSdkVersion 21
-        targetSdkVersion 33
+//        targetSdkVersion 33
+        targetSdkVersion 34
         multiDexEnabled true
         versionCode 46
         versionName "5.36"
@@ -46,8 +47,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     //implementation platform('com.google.firebase:firebase-bom:30.5.0')
     //    implementation 'com.google.firebase:firebase-ads:20.2.0' --works ok
-    implementation 'com.google.firebase:firebase-ads:22.3.0' //broken
-    //implementation 'com.google.firebase:firebase-ads:23.2.0' //broken
+    //implementation 'com.google.firebase:firebase-ads:22.3.0' //broken
+    implementation 'com.google.firebase:firebase-ads:23.2.0' //broken
     implementation 'com.google.firebase:firebase-core'
     implementation 'com.google.firebase:firebase-perf'
     // Declare the dependency for the Firebase SDK for Google Analytics
@@ -77,8 +78,8 @@ dependencies {
 //    implementation 'com.android.support:multidex:2.0.1'
     implementation 'com.android.support:multidex:1.0.3'
     //implementation 'androidx.work:work-runtime:2.7.1'
-    implementation 'androidx.work:work-runtime:2.8.1'
-    //implementation 'androidx.work:work-runtime:2.9.0'
+//    implementation 'androidx.work:work-runtime:2.8.1'
+    implementation 'androidx.work:work-runtime:2.9.0'
 
     //testImplementation 'junit:junit:4.12'
     testImplementation 'junit:junit:4.13.2'
