@@ -33,6 +33,7 @@ import com.google.android.ump.UserMessagingPlatform;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
     private AdView mAdView;
     private ConsentInformation consentInformation;
+    // Use an atomic boolean to initialize the Google Mobile Ads SDK and load ads once.
+    private final AtomicBoolean isMobileAdsInitializeCalled = new AtomicBoolean(false);
 
     String fakeWebData =
             "[{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-19 18:25:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-100\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 00:10:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"143\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 06:35:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-30\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 13:05:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 19:00:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 00:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"65\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 07:05:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-20\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 13:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 19:40:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"}]";
@@ -115,6 +118,9 @@ public class MainActivity extends AppCompatActivity {
                                 }
 
                                 // Consent has been gathered.
+                                if (consentInformation.canRequestAds()) {
+                                    initializeMobileAdsSdk();
+                                }
                             }
                     );
                 },
@@ -124,6 +130,13 @@ public class MainActivity extends AppCompatActivity {
                             requestConsentError.getErrorCode(),
                             requestConsentError.getMessage()));
                 });
+        // Check if you can initialize the Google Mobile Ads SDK in parallel
+        // while checking for new consent information. Consent obtained in
+        // the previous session can be used to request ads.
+        if (consentInformation.canRequestAds()) {
+            initializeMobileAdsSdk();
+        }
+
         // Find all views in the main activity
         tideRecapDescription = (TextView) findViewById(R.id.tideRecapDescription);
         tideForecastDate = (TextView) findViewById(R.id.tideForecastDate);
@@ -168,6 +181,25 @@ public class MainActivity extends AppCompatActivity {
                 updateTideData();
             }
         });
+    }
+
+    private void initializeMobileAdsSdk() {
+        if (isMobileAdsInitializeCalled.getAndSet(true)) {
+            return;
+        }
+
+        new Thread(
+                () -> {
+                    // Initialize the Google Mobile Ads SDK on a background thread.
+                    MobileAds.initialize(this, initializationStatus -> {});
+                    runOnUiThread(
+                            () -> {
+                                // TODO: Request an ad.
+                                // InterstitialAd.load(...);
+                            });
+                })
+                .start();
+
     }
 
     @Override

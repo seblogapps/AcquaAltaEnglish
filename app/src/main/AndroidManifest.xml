@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7349086147955397~7734184417" />
+        <meta-data
+            android:name="com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING"
+            android:value="true" />
         <!-- Required for AdMob -->
         <activity
             android:name=".MainActivity"
@@ -78,8 +84,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="appinventor.ai_seblog2k.Acqua_Alta.WebCamActivity" />
         </activity>
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7349086147955397~7734184417" />
+
     </application>
 </manifest>
