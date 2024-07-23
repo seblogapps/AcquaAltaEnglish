@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // AdMob banner
+        // Log the Mobile Ads SDK version.
+        Log.d(TAG, "Google Mobile Ads SDK Version: " + MobileAds.getVersion());
         List<String> testDevices = new ArrayList<>();
         testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
         testDevices.add("11EE834DE9176B621F70C33C75B7E126");
