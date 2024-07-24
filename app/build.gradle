@@ -43,6 +43,8 @@ android {
     }
 }
 dependencies {
+    //Ad Mob
+    implementation 'com.google.android.gms:play-services-ads:23.2.0'
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     //implementation platform('com.google.firebase:firebase-bom:33.1.2')
