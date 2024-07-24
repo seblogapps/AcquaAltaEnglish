@@ -88,4 +88,6 @@
     <string name="monthlyTideGraph_shortcut_short_label1">Monthly Graph</string>
     <string name="monthlyTideGraph_shortcut_long_label1">Monthly Tide Graph</string>
     <string name="monthlyTideGraph_shortcut_disabled_label1">Monthly Tide Graph Disabled</string>
+    <string name="more_menu">More</string>
+    <string name="privacy_settings" translatable="false">Privacy Settings</string>
 </resources>

@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -63,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
     private ConsentInformation consentInformation;
     // Use an atomic boolean to initialize the Google Mobile Ads SDK and load ads once.
     private final AtomicBoolean isMobileAdsInitializeCalled = new AtomicBoolean(false);
+    // Show a privacy options button if required.
+    public boolean isPrivacyOptionsRequired() {
+        return consentInformation.getPrivacyOptionsRequirementStatus()
+                == ConsentInformation.PrivacyOptionsRequirementStatus.REQUIRED;
+    }
 
     String fakeWebData =
             "[{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-19 18:25:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-100\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 00:10:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"143\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 06:35:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-30\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 13:05:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-20 19:00:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 00:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"65\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 07:05:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"-20\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 13:35:00\",\"TIPO_ESTREMALE\":\"max\",\"VALORE\":\"75\"},{\"DATA_PREVISIONE\":\"2016-08-19 13:30:00\",\"DATA_ESTREMALE\":\"2016-08-21 19:40:00\",\"TIPO_ESTREMALE\":\"min\",\"VALORE\":\"0\"}]";
@@ -110,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
                                 if (consentInformation.canRequestAds()) {
                                     Log.d(TAG, "UserMessagingPlatform : consentInformation has been gathered");
                                     initializeMobileAdsSdk();
+                                }
+
+                                if (isPrivacyOptionsRequired()) {
+                                    // Regenerate the options menu to include a privacy setting.
+                                    invalidateOptionsMenu();
                                 }
                             }
                     );
@@ -184,14 +195,14 @@ public class MainActivity extends AppCompatActivity {
                     MobileAds.initialize(this, initializationStatus -> {});
                     runOnUiThread(
                             () -> {
-                                // TODO: Request an ad.
-                                //AdMob code
                                 // AdMob banner
                                 // Log the Mobile Ads SDK version.
                                 Log.d(TAG, "Google Mobile Ads SDK Version: " + MobileAds.getVersion());
+                                // Add test devices
                                 List<String> testDevices = new ArrayList<>();
                                 testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
                                 testDevices.add("11EE834DE9176B621F70C33C75B7E126");
+                                testDevices.add("5A842A9F443A7A404548697A87202890"); //Pixel 6
 
                                 RequestConfiguration requestConfiguration
                                         = new RequestConfiguration.Builder()
@@ -211,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /** Called when leaving the activity */
     @Override
     protected void onPause() {
         if (mAdView != null) {
@@ -218,11 +230,29 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onPause();
     }
+    /** Called when returning to the activity */
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+    /** Called before the activity is destroyed */
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem moreMenu = menu.findItem(R.id.action_more);
+        moreMenu.setVisible(isPrivacyOptionsRequired());
         return true;
     }
 
@@ -284,6 +314,30 @@ public class MainActivity extends AppCompatActivity {
             mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
             InfoClassDialogFragment mInfoClassDialogFragment = new InfoClassDialogFragment();
             mInfoClassDialogFragment.show(getSupportFragmentManager(), "Dialog");
+        }
+
+        if (id == R.id.action_more) {
+            // FireBase Analytics SELECT_CONTENT logging
+            Bundle bundle = new Bundle();
+            String firebase_id = "privacySettings";
+            String firebase_name = "Selected PrivacySettings";
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, firebase_id);
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, firebase_name);
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "PrivacySettings");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+            // Present the privacy options form when a user interacts with
+            // the privacy settings button.
+            UserMessagingPlatform.showPrivacyOptionsForm(
+                    this,
+                    formError -> {
+                        if (formError != null) {
+                            // Handle the error.
+                            Toast.makeText(this, formError.getMessage(), Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "UserMessagingPlatform.showPrivacyOptionsForm error");
+                        }
+                    }
+            );
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

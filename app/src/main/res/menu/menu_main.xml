@@ -27,4 +27,12 @@
         android:orderInCategory="60"
         android:title="@string/action_info"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_more"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:orderInCategory="80"
+        android:title="@string/privacy_settings"
+        app:showAsAction="never"
+        android:visible="false"/>
 </menu>
