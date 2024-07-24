@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.ump.ConsentDebugSettings;
 import com.google.android.ump.ConsentForm;
 import com.google.android.ump.ConsentRequestParameters;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -74,34 +75,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // AdMob banner
-        // Log the Mobile Ads SDK version.
-        Log.d(TAG, "Google Mobile Ads SDK Version: " + MobileAds.getVersion());
-        List<String> testDevices = new ArrayList<>();
-        testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
-        testDevices.add("11EE834DE9176B621F70C33C75B7E126");
-
-        RequestConfiguration requestConfiguration
-                = new RequestConfiguration.Builder()
-                .setTestDeviceIds(testDevices)
-                .build();
-        MobileAds.setRequestConfiguration(requestConfiguration);
-        MobileAds.initialize(this);
-//        MobileAds.initialize(this, getResources().getString(R.string.banner_ad_unit_id));
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice("11EE834DE9176B621F70C33C75B7E126")
-                .build();
-        mAdView.loadAd(adRequest);
-
         // FireBase analytics
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
 
         // Ad-Mob Consent form
+        ConsentDebugSettings debugConsentForm = new ConsentDebugSettings.Builder(this)
+                .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+                .addTestDeviceHashedId("B3EEABB8EE11C2BE770B684D95219ECB")
+                .build();
+
         // Create a ConsentRequestParameters object.
         ConsentRequestParameters params = new ConsentRequestParameters
                 .Builder()
+                .setConsentDebugSettings(debugConsentForm)
                 .build();
 
         consentInformation = UserMessagingPlatform.getConsentInformation(this);
@@ -121,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 // Consent has been gathered.
                                 if (consentInformation.canRequestAds()) {
+                                    Log.d(TAG, "UserMessagingPlatform : consentInformation has been gathered");
                                     initializeMobileAdsSdk();
                                 }
                             }
@@ -197,7 +185,26 @@ public class MainActivity extends AppCompatActivity {
                     runOnUiThread(
                             () -> {
                                 // TODO: Request an ad.
-                                // InterstitialAd.load(...);
+                                //AdMob code
+                                // AdMob banner
+                                // Log the Mobile Ads SDK version.
+                                Log.d(TAG, "Google Mobile Ads SDK Version: " + MobileAds.getVersion());
+                                List<String> testDevices = new ArrayList<>();
+                                testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
+                                testDevices.add("11EE834DE9176B621F70C33C75B7E126");
+
+                                RequestConfiguration requestConfiguration
+                                        = new RequestConfiguration.Builder()
+                                        .setTestDeviceIds(testDevices)
+                                        .build();
+                                MobileAds.setRequestConfiguration(requestConfiguration);
+                                MobileAds.initialize(this);
+//        MobileAds.initialize(this, getResources().getString(R.string.banner_ad_unit_id));
+                                mAdView = findViewById(R.id.adView);
+                                AdRequest adRequest = new AdRequest.Builder()
+                                        //.addTestDevice("11EE834DE9176B621F70C33C75B7E126")
+                                        .build();
+                                mAdView.loadAd(adRequest);
                             });
                 })
                 .start();

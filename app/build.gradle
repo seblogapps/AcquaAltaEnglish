@@ -14,8 +14,8 @@ android {
 //        targetSdkVersion 33
         targetSdkVersion 34
         multiDexEnabled true
-        versionCode 46
-        versionName "5.36"
+        versionCode 47
+        versionName "5.361"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -45,6 +45,7 @@ android {
 dependencies {
     //Ad Mob
     implementation 'com.google.android.gms:play-services-ads:23.2.0'
+    implementation("com.google.android.ump:user-messaging-platform:3.0.0")
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     //implementation platform('com.google.firebase:firebase-bom:33.1.2')
@@ -85,7 +86,7 @@ dependencies {
 //    implementation 'androidx.work:work-runtime:2.8.1'
     implementation 'androidx.work:work-runtime:2.9.0'
 
-    implementation("com.google.android.ump:user-messaging-platform:3.0.0")
+
 
     //testImplementation 'junit:junit:4.12'
     testImplementation 'junit:junit:4.13.2'
