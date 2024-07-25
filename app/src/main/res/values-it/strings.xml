@@ -56,7 +56,7 @@
     <string name="monthlyTideGraph_shortcut_disabled_label1">Grafico Marea Astronomica Disabilitato</string>
     <string name="title_activity_tide_month_graph">Grafico Marea Astronomica</string>
     <string name="string_fabdescription">Ricarica</string>
-    <string name="tideMonthGraphAttibution">Fonte : https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
+    <string name="tideMonthGraphAttibution">Fonte: https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
     <string name="ads">Pubblicitá</string>
     <string name="more_menu">Altro</string>
 </resources>

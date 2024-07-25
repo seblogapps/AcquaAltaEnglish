@@ -67,7 +67,7 @@
     <string name="action_tideMonthGraph">Tide Monthly Graph</string>
     <string name="title_activity_tide_month_graph">Tide Monthly Graph</string>
     <string name="string_fabdescription">Reload</string>
-    <string name="tideMonthGraphAttibution">Source : https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
+    <string name="tideMonthGraphAttibution">Source: https://www.comune.venezia.it/content/i-grafici-della-marea-astronomica-a-venezia</string>
     <string name="ads">Ads</string>
     <string name="monthlyTideGraph_shortcut_short_label1">Monthly Tide Graph</string>
     <string name="monthlyTideGraph_shortcut_long_label1">Show Monthly Tide Graph</string>
