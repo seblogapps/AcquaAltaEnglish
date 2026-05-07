@@ -11,8 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoTools;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +51,13 @@ public class WebCamActivity extends AppCompatActivity {
                     snackbar.setAction("Action", null);
                     snackbar.show();
                 } else {
-                    PicassoTools.clearCache(Picasso.get());
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Glide.get(getApplicationContext()).clearDiskCache();
+                        }
+                    }).start();
+                    Glide.get(getApplicationContext()).clearMemory();
                     mWebCamRecyclerViewAdapter.clear();
                     updateWebCamRecyclerView();
                 }

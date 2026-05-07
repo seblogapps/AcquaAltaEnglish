@@ -13,8 +13,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -114,13 +115,14 @@ public class FullscreenWebCam extends AppCompatActivity {
         description.setText(webCamDescription);
 
         ImageView webCamImageView = (ImageView) findViewById(R.id.webcamImage);
-        // Use Picasso library to load the image
-        Picasso.get()
+        // Use Glide library to load the image
+        Glide.with(this)
                 .load(webCamUrl)
-                //.networkPolicy(NetworkPolicy.NO_CACHE)
-                .memoryPolicy(MemoryPolicy.NO_CACHE)
-                .placeholder(R.drawable.webcamplaceholder)
-                .error(R.drawable.webcamerrorplaceholder)
+                .apply(new RequestOptions()
+                        .placeholder(R.drawable.webcamplaceholder)
+                        .error(R.drawable.webcamerrorplaceholder)
+                        .skipMemoryCache(true)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE))
                 .into(webCamImageView);
 
         mVisible = true;

@@ -10,9 +10,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.signature.ObjectKey;
 
 import uk.co.senab.photoview.PhotoView;
 
@@ -41,13 +42,13 @@ public class TideMonthGraphActivity extends AppCompatActivity {
 
         // Create a PhotoView object to store the tideGraph (PhotoView library used to implement pinch-to-zoom)
         tideImageView = (PhotoView) findViewById(R.id.tideMonthGraph);
-        // Use Picasso library to load the image
-        Picasso.get()
+        // Use Glide library to load the image
+        Glide.with(this)
                 .load(tideMonthGraphURL)
-                .resize(2048, 1600)
-                .onlyScaleDown()
-                .placeholder(R.drawable.tidegraphplaceholder)
-                .error(R.drawable.tidegrapherrorplaceholder)
+                .apply(new RequestOptions()
+                        .override(2048, 1600)
+                        .placeholder(R.drawable.tidegraphplaceholder)
+                        .error(R.drawable.tidegrapherrorplaceholder))
                 .into(tideImageView);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabTideGraph);
@@ -59,15 +60,15 @@ public class TideMonthGraphActivity extends AppCompatActivity {
                     snackbar.setAction("Action", null);
                     snackbar.show();
                 } else {
-                    Picasso.get().invalidate(tideMonthGraphURL);
-                    Picasso.get()
+                    Glide.with(TideMonthGraphActivity.this)
                             .load(tideMonthGraphURL)
-                            .resize(2048, 1600)
-                            .onlyScaleDown()
-                            .memoryPolicy(MemoryPolicy.NO_CACHE)
-                            .networkPolicy(NetworkPolicy.NO_CACHE)
-                            .placeholder(R.drawable.tidegraphplaceholder)
-                            .error(R.drawable.tidegrapherrorplaceholder)
+                            .apply(new RequestOptions()
+                                    .override(2048, 1600)
+                                    .placeholder(R.drawable.tidegraphplaceholder)
+                                    .error(R.drawable.tidegrapherrorplaceholder)
+                                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                    .skipMemoryCache(true)
+                                    .signature(new ObjectKey(System.currentTimeMillis())))
                             .into(tideImageView);
                 }
             }

@@ -2,6 +2,8 @@ package appinventor.ai_seblog2k.Acqua_Alta;
 
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -16,6 +18,7 @@ import com.google.android.gms.ads.AdView;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
 
 import uk.co.senab.photoview.PhotoView;
 
@@ -50,8 +53,14 @@ public class TideGraphActivity extends AppCompatActivity {
 
         // Create a PhotoView object to store the tideGraph (PhotoView library used to implement pinch-to-zoom)
         tideImageView = (PhotoView) findViewById(R.id.tideGraph);
-        // Use Picasso library to load the image
-        Picasso.get()
+//        // Use Picasso library to load the image
+//        Picasso.get()
+//                .load(tideGraphURL)
+//                .placeholder(R.drawable.tidegraphplaceholder)
+//                .error(R.drawable.tidegrapherrorplaceholder)
+//                .into(tideImageView);
+        // Use Glide library to load the image
+        Glide.with(this) // or context, or fragment
                 .load(tideGraphURL)
                 .placeholder(R.drawable.tidegraphplaceholder)
                 .error(R.drawable.tidegrapherrorplaceholder)
@@ -66,11 +75,21 @@ public class TideGraphActivity extends AppCompatActivity {
                     snackbar.setAction("Action", null);
                     snackbar.show();
                 } else {
-                    Picasso.get().invalidate(tideGraphURL);
-                    Picasso.get()
+//                    Picasso.get().invalidate(tideGraphURL);
+//                    Picasso.get()
+//                            .load(tideGraphURL)
+//                            .memoryPolicy(MemoryPolicy.NO_CACHE)
+//                            .networkPolicy(NetworkPolicy.NO_CACHE)
+//                            .placeholder(R.drawable.tidegraphplaceholder)
+//                            .error(R.drawable.tidegrapherrorplaceholder)
+//                            .into(tideImageView);
+                    // 1. Clear the memory cache for the specific view (Equivalent to invalidate)
+                    Glide.with(TideGraphActivity.this).clear(tideImageView);
+                    // 2. Load with no-cache policies
+                    Glide.with(TideGraphActivity.this)
                             .load(tideGraphURL)
-                            .memoryPolicy(MemoryPolicy.NO_CACHE)
-                            .networkPolicy(NetworkPolicy.NO_CACHE)
+                            .skipMemoryCache(true) // Skip the RAM cache
+                            .diskCacheStrategy(DiskCacheStrategy.NONE) // Skip the disk cache
                             .placeholder(R.drawable.tidegraphplaceholder)
                             .error(R.drawable.tidegrapherrorplaceholder)
                             .into(tideImageView);
