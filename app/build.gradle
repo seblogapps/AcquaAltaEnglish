@@ -4,7 +4,7 @@ apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
 //    compileSdkVersion 33
-    compileSdk 34
+    compileSdk 35
     //buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "appinventor.ai_seblog2k.Acqua_Alta"
@@ -12,10 +12,10 @@ android {
 //        minSdkVersion 20
         minSdkVersion 21
 //        targetSdkVersion 33
-        targetSdkVersion 34
+        targetSdkVersion 35
         multiDexEnabled true
-        versionCode 48
-        versionName "5.40"
+        versionCode 51
+        versionName "5.50"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

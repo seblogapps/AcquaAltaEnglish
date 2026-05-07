@@ -40,8 +40,8 @@ public class TideRecyclerViewAdapter extends RecyclerView.Adapter<TideViewHolder
         Log.d(TAG, "onBindViewHolder: Processing: " + tideItem.getExtremalDate() + " position --> " + position);
         tideViewHolder.extremalDate.setText(Utils.formatJSONDateTime(tideItem.getExtremalDate()));
         tideViewHolder.extremalType.setText(formatExtremalType(tideItem.getExtremalType()));
-        tideViewHolder.extremalValue.setText(tideItem.getExtremalValue());
-        if (Integer.parseInt(tideItem.getExtremalValue()) >= EXTREMAL_VALUE_THRESHOLD) {
+        tideViewHolder.extremalValue.setText(String.valueOf(tideItem.getExtremalValue()));
+        if (tideItem.getExtremalValue() >= EXTREMAL_VALUE_THRESHOLD) {
             tideViewHolder.extremalValue.setTextColor(Color.RED);
         }
     }

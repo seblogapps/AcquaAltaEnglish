@@ -8,15 +8,15 @@ public class Tide implements Comparable<Tide> {
     private String mForecastDate;
     private String mExtremalDate;
     private String mExtremalType;
-    private String mExtremalValue;
+    private int mExtremalValue;
 
     @Override
     public int compareTo(Tide compareTide) {
-        int compareExtremalValue = Integer.parseInt((compareTide).getExtremalValue());
-        return Integer.parseInt(this.mExtremalValue) - compareExtremalValue;
+        int compareExtremalValue = (compareTide).getExtremalValue();
+        return (this.mExtremalValue) - compareExtremalValue;
     }
 
-    public Tide(String forecastDate, String extremalDate, String extremalType, String extremalValue) {
+    public Tide(String forecastDate, String extremalDate, String extremalType, int extremalValue) {
         mForecastDate = forecastDate;
         mExtremalDate = extremalDate;
         mExtremalType = extremalType;
@@ -47,11 +47,11 @@ public class Tide implements Comparable<Tide> {
         mExtremalType = extremalType;
     }
 
-    public String getExtremalValue() {
+    public Integer getExtremalValue() {
         return mExtremalValue;
     }
 
-    public void setExtremalValue(String extremalValue) {
+    public void setExtremalValue(Integer extremalValue) {
         mExtremalValue = extremalValue;
     }
 

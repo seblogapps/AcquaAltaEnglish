@@ -35,7 +35,7 @@ public class GetSavedTideData extends GetTideJsonData {
     // Return the index position of the maximum tide level in the current forecast
     public int getExtremalMaxValue() {
         Tide tideObject = Collections.max(mTides);
-        return Integer.parseInt(tideObject.getExtremalValue());
+        return tideObject.getExtremalValue();
     }
 
     public int getExtremalMaxValueIndex() {
@@ -60,7 +60,7 @@ public class GetSavedTideData extends GetTideJsonData {
                 String forecastDate = jsonTideObject.getString(FORECAST_DATE);
                 String extremalDate = jsonTideObject.getString(EXTREMAL_DATE);
                 String extremalType = jsonTideObject.getString(EXTREMAL_TYPE);
-                String extremalValue = jsonTideObject.getString(EXTREMAL_VALUE);
+                int extremalValue = Integer.parseInt(jsonTideObject.getString(EXTREMAL_VALUE));
 
                 Tide tideObject = new Tide(forecastDate, extremalDate, extremalType, extremalValue);
 
